@@ -9,6 +9,7 @@
 </div> -->
 
 <p align="center">
+  <h2 style="font-size: 70px;">52/17 Work Break Timer</h2>
   <img style="text-align: center;" src="./images/Main.png">
 </p>
 
