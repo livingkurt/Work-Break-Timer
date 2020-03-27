@@ -144,6 +144,7 @@ input:checked+.slider:before {
   color: white;
   user-select: none;
   height: 84vh;
+  position: relative;
 }
 
 .timer {
@@ -293,14 +294,62 @@ input:checked+.slider:before {
 }
 
 .input-group {
-  margin-top: 20px;
+  /* margin-top: 20px; */
   float: left;
   width: 50%;
   padding: 10px;
+  width: 32%;
 }
 
 .inputs::after {
   content: " ";
   display: block;
   clear: both;
+  /* width: 50%; */
+  /* position: absolute; */
+}
+
+/* The Modal (background) */
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 281px;
+  top: 361px;
+  /* width: 87%; */
+  height: 12%;
+  overflow: auto;
+  /* background-color: rgb(0, 0, 0); */
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  /* If you want dots under the hoverable text */
+}
+
+/* Tooltip text */
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  /* width: 75px; */
+  background-color: black;
+  opacity: 0.5;
+  color: #fff;
+  text-align: center;
+  /* padding: 10px; */
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+  bottom: 100%;
+  margin-left: -60px;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  font-size: 16px;
 }

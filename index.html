@@ -20,16 +20,20 @@
     <div class="timer_container">
       <div class="timer">
         <!-- <div id="hand"></div> -->
+
         <div class="controls">
           <label class="switch" for="status-toggle">
             <input checked type="checkbox" name="status-toggle" id="status-toggle" />
             <span class="slider"></span>
           </label>
           <div class="status">Status: <span id="status">Working</span></div>
-          <div class="time">
+          <!-- <div class="tooltip">/ -->
+          <div class="time zoom">
             <div id="minutes">52</div>
             <div id="seconds">00</div>
           </div>
+          <!-- <span id="home_pop_up" className="tooltiptext">Home</span> -->
+          <!-- </div> -->
           <div class="buttons">
             <button aria-label="play" id="play" class="zoom action_buttons">
               <i class="fa fa-play" aria-hidden="true"></i>
@@ -43,6 +47,17 @@
           </div>
         </div>
       </div>
+      <div class="inputs modal" style="display: none;" id="myModal">
+        <div class="input-group">
+          <label for="work-minutes">Minutes of Work</label>
+          <input type="number" name="work" id="work-minutes" value="52" />
+        </div>
+        <div class="input-group">
+          <label for="rest-minutes">Minutes of Rest</label>
+          <input type="number" name="rest" id="rest-minutes" value="17" />
+        </div>
+        <span class="close">&times;</span>
+      </div>
       <div class="activity_list_div"></div>
       <div class="activity_input_div">
         <label>Activity</label>
@@ -51,19 +66,7 @@
           <button class="add_button zoom ">Add</button>
         </div>
       </div>
-
     </div>
-
-    <!-- <div class="inputs">
-      <div class="input-group">
-        <label for="work-minutes">Minutes of Work</label>
-        <input type="number" name="work" id="work-minutes" value="52" />
-      </div>
-      <div class="input-group">
-        <label for="rest-minutes">Minutes of Rest</label>
-        <input type="number" name="rest" id="rest-minutes" value="17" />
-      </div>
-    </div> -->
   </div>
   <script src="./script.js"></script>
 </body>

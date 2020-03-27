@@ -3,6 +3,8 @@ var statusToggle = document.querySelector("#status-toggle");
 var playButton = document.querySelector("#play");
 var pauseButton = document.querySelector("#pause");
 var stopButton = document.querySelector("#stop");
+var time_div = document.querySelector(".time");
+var inputs = document.querySelector(".inputs");
 var minutesDisplay = document.querySelector("#minutes");
 var secondsDisplay = document.querySelector("#seconds");
 var workMinutesInput = document.querySelector("#work-minutes");
@@ -67,10 +69,10 @@ function setTime() {
 
   if (status === "Working") {
     // minutes = workMinutesInput.value.trim();
-    minutes = 52
+    minutes = workMinutesInput.value.trim() || 52
   } else {
-    // minutes = restMinutesInput.value.trim();
-    minutes = 17
+    minutes = restMinutesInput.value.trim() || 17
+    // minutes = 17
   }
 
   clearInterval(interval);
@@ -203,6 +205,44 @@ const delete_activity = (e) => {
   console.log(e.target)
 }
 
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+const show_time_modifiers = () => {
+  if (modal.getAttribute("style") === "display: none;") {
+    // console.log(inputs.getAttribute("style"))
+    modal.setAttribute("style", "display: block; margin-left: 71px; width: 41%;")
+  }
+  else {
+    inputs.setAttribute("style", "display: none;")
+  }
+  console.log(inputs)
+}
+
+
+
+// // When the user clicks on the button, open the modal
+// btn.onclick = function () {
+//   modal.style.display = "block";
+// }
+
+// // When the user clicks on <span> (x), close the modal
+// span.onclick = function () {
+//   modal.style.display = "none";
+// }
+
+// // When the user clicks anywhere outside of the modal, close it
+// window.onclick = function (event) {
+//   if (event.target == modal) {
+//     modal.style.display = "none";
+//   }
+// }
+
 
 
 playButton.addEventListener("click", startTimer);
@@ -220,3 +260,4 @@ document.addEventListener('click', (e) => {
   // document.removeChild(list_item_to_remove);
 
 })
+time_div.addEventListener("click", show_time_modifiers);
