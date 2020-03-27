@@ -171,7 +171,8 @@ const add_activity = () => {
   let list_item = document.createElement("li");
   list_item.textContent = document.querySelector(".activity_input").value
   list_item.setAttribute("class", "list_item")
-  activity_list_div.appendChild(list_item)
+  activity_list_div.prepend(list_item)
+  document.querySelector(".activity_input").value = ""
   // activity_list_div.write(`<li class=list_item>${document.querySelector(".activity_input").value}</li>`)
 
 

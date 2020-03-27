@@ -72,9 +72,10 @@ li {
   font-family: sans-serif;
   background: white;
   margin-top: 10px;
+  margin: 10px auto 0px auto;
   padding: 5px;
   color: #ad5c5c;
-  width: 100%;
+  width: 95%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -103,7 +104,7 @@ label {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(168, 223, 214, 1);
+  background-color: #ad5c5c;
   -webkit-transition: 0.4s;
   transition: 0.4s;
   border-radius: 34px;
@@ -239,7 +240,7 @@ input:checked+.slider:before {
 }
 
 .activity_input_div {
-  width: 100%;
+  width: 95%;
   margin: 0 auto;
 }
 
