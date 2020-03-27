@@ -1,11 +1,12 @@
-<div style="display: flex; justify-content: center;">
-  <h2 style="font-size: 70px;">52/17 Work Break Timer</h2>
-  <!-- <img src="./images/Main.png"> -->
-</div>
+# 52/17 Work Break Timer
 
-<div style="display: flex; justify-content: center;">
+<!-- <div style="display: flex; justify-content: center;">
+  <h2 style="font-size: 70px;">52/17 Work Break Timer</h2>
+</div> -->
+
+<div style="text-align: center;">
   <!-- <h3>View in Browser</h3> -->
-  <img src="./images/Main.png">
+  <img style="text-align: center;" src="./images/Main.png">
 </div>
 
 ### View in [Browser](https://livingkurt.github.io/Work-Break-Timer/)
