@@ -80,11 +80,11 @@ label {
 }
 
 input:checked+.slider {
-  background-color: #ad5c5c;
+  background-color: rgb(89, 192, 218);
 }
 
 input:focus+.slider {
-  box-shadow: 0 0 1px #ad5c5c;
+  box-shadow: 0 0 1px rgb(89, 192, 218);
 }
 
 input:checked+.slider:before {
@@ -139,7 +139,7 @@ input:checked+.slider:before {
   position: absolute;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
-  border-top: 10px solid white;
+  border-top: 10px solid #67ab09;
   top: -19.175px;
   left: 2px;
   border-radius: 50%;

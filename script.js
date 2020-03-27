@@ -69,10 +69,12 @@ function renderTime() {
       audio.play();
       // alert("Time for a break!");
       status = "Resting";
+      document.getElementById("status-toggle").checked = false;
     } else {
       audio.play();
       // alert("Time to get back to work!");
       status = "Working";
+      document.getElementById("status-toggle").checked = true;
     }
     statusSpan.textContent = status;
 
@@ -151,4 +153,4 @@ function setTimePreferences() {
 playButton.addEventListener("click", startTimer);
 pauseButton.addEventListener("click", pauseTimer);
 stopButton.addEventListener("click", stopTimer);
-// statusToggle.addEventListener("change", toggleStatus);
+statusToggle.addEventListener("change", toggleStatus);
