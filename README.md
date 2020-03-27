@@ -51,6 +51,12 @@ npm start
 
 # How it works
 
+- Press the play button to start the timer
+- Press the pause button to pause the timer and snooze the ending sound
+- Press Stop to reset the timer
+- You can switch back and forth between Work and Break timers manually with the toggle switch
+- There are number inputs at the bottom that allow you to customize the amount of time you would like to work and break for
+
 # Science
 
 Link to [Source](https://www.themuse.com/advice/the-rule-of-52-and-17-its-random-but-it-ups-your-productivity)
