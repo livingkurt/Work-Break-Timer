@@ -10,8 +10,38 @@ body {
   font-size: 14px;
   background-color: #fdfdfd;
   font-family: "Josefin Sans", sans-serif;
-  background: linear-gradient(180deg, rgba(173, 92, 92, 1) 9%, rgba(168, 223, 214, 1) 78%, rgba(168, 223, 214, 1) 78%);
+  background-image: linear-gradient(180deg, rgba(173, 92, 92, 1) 9%, rgba(168, 223, 214, 1) 78%, rgba(168, 223, 214, 1) 78%);
+  /* transition: 1s; */
+  transition: background-image 5s linear;
   /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+}
+
+.zoom {
+  -webkit-transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.zoom::after {
+  -webkit-transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.zoom:hover {
+  -webkit-transform: scale(1.1, 1.1);
+  transform: scale(1.1, 1.1);
+}
+
+.zoom:hover::after {
+  opacity: 1;
+}
+
+.zoom:active {
+  -webkit-transform: scale(1, 1);
+  transform: scale(1, 1);
+}
+
+.zoom:active::after {
+  opacity: 1;
 }
 
 header {
@@ -25,14 +55,27 @@ h1 {
 }
 
 input {
-  border: 5px solid white;
-  border-top: none;
   border-radius: 5px;
-  border-left: none;
-  border-right: none;
+  border: none;
   font-size: 2em;
+  padding: 5px;
   color: #ad5c5c;
   width: 100%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+li {
+  border-radius: 5px;
+  border: none;
+  list-style-type: none;
+  font-size: 2em;
+  font-family: sans-serif;
+  background: white;
+  margin-top: 10px;
+  padding: 5px;
+  color: #ad5c5c;
+  width: 100%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 label {
@@ -60,7 +103,7 @@ label {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ccc;
+  background-color: rgba(168, 223, 214, 1);
   -webkit-transition: 0.4s;
   transition: 0.4s;
   border-radius: 34px;
@@ -103,13 +146,15 @@ input:checked+.slider:before {
 .timer {
   height: 300px;
   width: 300px;
-  margin: 0 auto;
+  margin: 0 auto 25px auto;
   background-color: white;
   border-radius: 50%;
   position: relative;
+  background-image: linear-gradient(0deg, rgba(173, 92, 92, 1) 9%, rgba(168, 223, 214, 1) 78%, rgba(168, 223, 214, 1) 78%);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.timer::before {
+/* .timer::before {
   content: " ";
   display: block;
   position: absolute;
@@ -119,10 +164,10 @@ input:checked+.slider:before {
   width: 290px;
   background-color: #fdfdfd;
   border-radius: 50%;
-}
+} */
 
 .timer_container {
-  height: 53vh;
+  /* height: 53vh; */
 }
 
 #hand {
@@ -184,13 +229,44 @@ input:checked+.slider:before {
   font-size: 6em;
   float: left;
   margin-left: 25%;
-  color: #ad5c5c
+  color: white
 }
 
 #seconds {
   font-size: 4em;
   float: left;
-  color: #ad5c5c;
+  color: white;
+}
+
+.activity_input_div {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.activity_list_div {
+  overflow: scroll;
+  overflow-x: auto;
+  height: 17vh;
+}
+
+#activity_input {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.add_button {
+  height: unset !important;
+  width: 85px !important;
+  margin: 0px 0px 0px 5px!important;
+  border-radius: 5px !important;
+  font-size: 1.5em;
+  background-color: #ad5c5c;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.add_activity {
+  display: flex;
 }
 
 button {
@@ -200,10 +276,11 @@ button {
   margin-top: 10px;
   border-radius: 50%;
   font-size: 1.5em;
-  background-color: #ad5c5c;
+  background-color: white;
   border: none;
-  color: #fdfdfd;
+  color: #ad5c5c;
   cursor: pointer;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 button:focus, input:focus {

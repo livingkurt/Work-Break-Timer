@@ -7,6 +7,9 @@ var minutesDisplay = document.querySelector("#minutes");
 var secondsDisplay = document.querySelector("#seconds");
 var workMinutesInput = document.querySelector("#work-minutes");
 var restMinutesInput = document.querySelector("#rest-minutes");
+var add_activity_list_item = document.querySelector(".add_button");
+var activity_input = document.querySelector(".activity_input");
+var activity_list_div = document.querySelector(".activity_list_div")
 var audio = new Audio('./audio/Cherry.mp3');
 
 
@@ -70,11 +73,14 @@ function renderTime() {
       // alert("Time for a break!");
       status = "Resting";
       document.getElementById("status-toggle").checked = false;
+      document.querySelector("body").setAttribute("style", "background-image: linear-gradient(0deg, rgba(173, 92, 92, 1) 9%, rgba(168, 223, 214, 1) 78%, rgba(168, 223, 214, 1) 78%)")
     } else {
       audio.play();
       // alert("Time to get back to work!");
       status = "Working";
       document.getElementById("status-toggle").checked = true;
+
+      document.querySelector("body").setAttribute("style", "background-image: linear-gradient(180deg, rgba(173, 92, 92, 1) 9%, rgba(168, 223, 214, 1) 78%, rgba(168, 223, 214, 1) 78%)")
     }
     statusSpan.textContent = status;
 
@@ -112,8 +118,18 @@ function toggleStatus(event) {
 
   if (checked) {
     status = "Working";
+    document.querySelector("body").setAttribute("style", "background: linear-gradient(180deg, rgba(173, 92, 92, 1) 9%, rgba(168, 223, 214, 1) 78%, rgba(168, 223, 214, 1) 78%)")
+    // for (let i = 180; i >= 0; i++) {
+    //   document.querySelector("body").setAttribute("style", `background: linear-gradient(${i}deg, rgba(173, 92, 92, 1) 9%, rgba(168, 223, 214, 1) 78%, rgba(168, 223, 214, 1) 78%)`)
+    // }
+
   } else {
     status = "Resting";
+
+    document.querySelector("body").setAttribute("style", "background: linear-gradient(0deg, rgba(173, 92, 92, 1) 9%, rgba(168, 223, 214, 1) 78%, rgba(168, 223, 214, 1) 78%)")
+    // for (let i = 0; i < 180; i++) {
+    //   document.querySelector("body").setAttribute("style", `background: linear-gradient(${i}deg, rgba(173, 92, 92, 1) 9%, rgba(168, 223, 214, 1) 78%, rgba(168, 223, 214, 1) 78%)`)
+    // }
   }
 
   statusSpan.textContent = status;
@@ -150,7 +166,19 @@ function setTimePreferences() {
   );
 }
 
+const add_activity = () => {
+  console.log(document.querySelector(".activity_input").value)
+  let list_item = document.createElement("li");
+  list_item.textContent = document.querySelector(".activity_input").value
+  list_item.setAttribute("class", "list_item")
+  activity_list_div.appendChild(list_item)
+  // activity_list_div.write(`<li class=list_item>${document.querySelector(".activity_input").value}</li>`)
+
+
+}
+
 playButton.addEventListener("click", startTimer);
 pauseButton.addEventListener("click", pauseTimer);
 stopButton.addEventListener("click", stopTimer);
 statusToggle.addEventListener("change", toggleStatus);
+add_activity_list_item.addEventListener("click", add_activity);
