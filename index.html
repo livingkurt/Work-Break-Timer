@@ -8,6 +8,7 @@
   <link href="https://fonts.googleapis.com/css?family=Amatic+SC:700|Josefin+Sans&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
   <link rel="stylesheet" href="./style.css" />
+  <script src="https://kit.fontawesome.com/cc10a71280.js" crossorigin="anonymous"></script>
   <title>Work Break Timer</title>
 </head>
 
@@ -26,22 +27,23 @@
           </label>
           <div class="status">Status: <span id="status">Working</span></div>
           <div class="time">
-            <div id="minutes">25</div>
+            <div id="minutes">52</div>
             <div id="seconds">00</div>
           </div>
           <div class="buttons">
-            <button aria-label="play" id="play" class="zoom">
+            <button aria-label="play" id="play" class="zoom action_buttons">
               <i class="fa fa-play" aria-hidden="true"></i>
             </button>
-            <button aria-label="pause" id="pause" class="zoom">
+            <button aria-label="pause" id="pause" class="zoom action_buttons">
               <i class="fa fa-pause" aria-hidden="true"></i>
             </button>
-            <button aria-label="stop" id="stop" class="zoom">
+            <button aria-label="stop" id="stop" class="zoom action_buttons">
               <i class="fa fa-stop" aria-hidden="true"></i>
             </button>
           </div>
         </div>
       </div>
+      <div class="activity_list_div"></div>
       <div class="activity_input_div">
         <label>Activity</label>
         <div class="add_activity">
@@ -49,10 +51,10 @@
           <button class="add_button zoom ">Add</button>
         </div>
       </div>
-      <div class="activity_list_div"></div>
+
     </div>
 
-    <div class="inputs">
+    <!-- <div class="inputs">
       <div class="input-group">
         <label for="work-minutes">Minutes of Work</label>
         <input type="number" name="work" id="work-minutes" value="52" />
@@ -61,7 +63,7 @@
         <label for="rest-minutes">Minutes of Rest</label>
         <input type="number" name="rest" id="rest-minutes" value="17" />
       </div>
-    </div>
+    </div> -->
   </div>
   <script src="./script.js"></script>
 </body>

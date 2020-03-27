@@ -64,18 +64,20 @@ input {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-li {
+.list_item_div {
   border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
   border: none;
   list-style-type: none;
   font-size: 2em;
   font-family: sans-serif;
   background: white;
-  margin-top: 10px;
-  margin: 10px auto 0px auto;
+  /* margin-top: 10px; */
+  margin: 10px 20px;
   padding: 5px;
   color: #ad5c5c;
-  width: 95%;
+  width: 88%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -247,7 +249,9 @@ input:checked+.slider:before {
 .activity_list_div {
   overflow: scroll;
   overflow-x: auto;
-  height: 17vh;
+  /* max-height: 35vh; */
+  height: 32vh;
+  padding-bottom: 20px;
 }
 
 #activity_input {
@@ -270,7 +274,7 @@ input:checked+.slider:before {
   display: flex;
 }
 
-button {
+.action_buttons {
   height: 60px;
   width: 60px;
   margin: 5px;
@@ -284,7 +288,7 @@ button {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-button:focus, input:focus {
+.action_buttons:focus, input:focus, .add_button:focus {
   outline: 0;
 }
 

@@ -21,5 +21,7 @@
     "gulp": "^4.0.2",
     "gulp-sass": "^4.0.2"
   },
-  "dependencies": {}
+  "dependencies": {
+    "date-and-time": "^0.13.1"
+  }
 }

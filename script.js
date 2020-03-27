@@ -10,7 +10,19 @@ var restMinutesInput = document.querySelector("#rest-minutes");
 var add_activity_list_item = document.querySelector(".add_button");
 var activity_input = document.querySelector(".activity_input");
 var activity_list_div = document.querySelector(".activity_list_div")
+var delete_button_e = document.querySelector(".delete_button")
 var audio = new Audio('./audio/Cherry.mp3');
+
+var time_stamp = Date.now();
+var date = new Date(time_stamp * 1000);
+var hours = date.getHours();
+// Minutes part from the timestamp
+var minutes = "0" + date.getMinutes();
+// Seconds part from the timestamp
+var seconds = "0" + date.getSeconds();
+
+// Will display time in 10:30:23 format
+var formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
 
 
 var totalSeconds = 0;
@@ -54,9 +66,11 @@ function setTime() {
   var minutes;
 
   if (status === "Working") {
-    minutes = workMinutesInput.value.trim();
+    // minutes = workMinutesInput.value.trim();
+    minutes = 52
   } else {
-    minutes = restMinutesInput.value.trim();
+    // minutes = restMinutesInput.value.trim();
+    minutes = 17
   }
 
   clearInterval(interval);
@@ -166,20 +180,43 @@ function setTimePreferences() {
   );
 }
 
+let id = 0
 const add_activity = () => {
-  console.log(document.querySelector(".activity_input").value)
+  id++
+  // console.log(document.querySelector(".activity_input").value)
+  let list_item_div = document.createElement("div");
   let list_item = document.createElement("li");
+  let delete_button = document.createElement("button");
   list_item.textContent = document.querySelector(".activity_input").value
-  list_item.setAttribute("class", "list_item")
-  activity_list_div.prepend(list_item)
+  delete_button.innerHTML = `<i data=${id} class='fas fa-minus-circle'></i>`
+  list_item_div.setAttribute("class", "list_item_div")
+  list_item_div.setAttribute("id", id)
+
+  delete_button.setAttribute("style", "background-color: unset; border: 0px; font-size: 25px; color: #ad5c5c; outline: none;")
+  delete_button.setAttribute("class", "zoom delete_button")
+  list_item_div.append(list_item, delete_button)
+  activity_list_div.prepend(list_item_div)
   document.querySelector(".activity_input").value = ""
-  // activity_list_div.write(`<li class=list_item>${document.querySelector(".activity_input").value}</li>`)
-
-
 }
+
+const delete_activity = (e) => {
+  console.log(e.target)
+}
+
+
 
 playButton.addEventListener("click", startTimer);
 pauseButton.addEventListener("click", pauseTimer);
 stopButton.addEventListener("click", stopTimer);
 statusToggle.addEventListener("change", toggleStatus);
 add_activity_list_item.addEventListener("click", add_activity);
+// delete_button_e.addEventListener("click", delete_activity);
+document.addEventListener('click', (e) => {
+  const id = e.target.getAttribute('data')
+  // console.log(id)
+  const list_item_to_remove = document.getElementById(id)
+  // console.log(list_item_to_remove)
+  list_item_to_remove.remove()
+  // document.removeChild(list_item_to_remove);
+
+})
