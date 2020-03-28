@@ -80,8 +80,8 @@ function setTime() {
 }
 
 function renderTime() {
-  minutesDisplay.textContent = getFormattedMinutes();
-  secondsDisplay.textContent = getFormattedSeconds();
+  minutesDisplay.textContent = getFormattedMinutes()
+  secondsDisplay.textContent = ":" + getFormattedSeconds();
 
   if (secondsElapsed >= totalSeconds) {
     if (status === "Working") {
@@ -135,6 +135,7 @@ function toggleStatus(event) {
   if (checked) {
     status = "Working";
     document.querySelector("body").setAttribute("style", "background: linear-gradient(180deg, rgba(173, 92, 92, 1) 9%, rgba(168, 223, 214, 1) 78%, rgba(168, 223, 214, 1) 78%)")
+    add_activity_list_item.setAttribute("style", "background-color:rgba(173, 92, 92, 1);")
     // for (let i = 180; i >= 0; i++) {
     //   document.querySelector("body").setAttribute("style", `background: linear-gradient(${i}deg, rgba(173, 92, 92, 1) 9%, rgba(168, 223, 214, 1) 78%, rgba(168, 223, 214, 1) 78%)`)
     // }
@@ -143,6 +144,7 @@ function toggleStatus(event) {
     status = "Resting";
 
     document.querySelector("body").setAttribute("style", "background: linear-gradient(0deg, rgba(173, 92, 92, 1) 9%, rgba(168, 223, 214, 1) 78%, rgba(168, 223, 214, 1) 78%)")
+    add_activity_list_item.setAttribute("style", "background-color:rgba(168, 223, 214, 1);")
     // for (let i = 0; i < 180; i++) {
     //   document.querySelector("body").setAttribute("style", `background: linear-gradient(${i}deg, rgba(173, 92, 92, 1) 9%, rgba(168, 223, 214, 1) 78%, rgba(168, 223, 214, 1) 78%)`)
     // }
@@ -216,7 +218,7 @@ var span = document.getElementsByClassName("close")[0];
 const show_time_modifiers = () => {
   if (modal.getAttribute("style") === "display: none;") {
     // console.log(inputs.getAttribute("style"))
-    modal.setAttribute("style", "display: block; margin-left: 71px; width: 41%;")
+    modal.setAttribute("style", "display: block; margin-left: 71px;")
   }
   else {
     inputs.setAttribute("style", "display: none;")

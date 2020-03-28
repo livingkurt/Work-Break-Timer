@@ -2,6 +2,16 @@
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: "font";
+  src: url("Fonts/Cocomat Ultralight-trial.ttf");
+}
+
+@font-face {
+  font-family: "font_2";
+  src: url("Fonts/UniNeue-Light.otf");
+}
+
 html {
   height: 100vh;
 }
@@ -9,7 +19,8 @@ html {
 body {
   font-size: 14px;
   background-color: #fdfdfd;
-  font-family: "Josefin Sans", sans-serif;
+  /* font-family: "Josefin Sans", sans-serif; */
+  font-family: "font_2";
   background-image: linear-gradient(180deg, rgba(173, 92, 92, 1) 9%, rgba(168, 223, 214, 1) 78%, rgba(168, 223, 214, 1) 78%);
   /* transition: 1s; */
   transition: background-image 5s linear;
@@ -47,7 +58,7 @@ body {
 header {
   text-align: center;
   color: white;
-  /* font-family: "Amatic SC", cursive; */
+  /* font-family: "font_2"; */
 }
 
 h1 {
@@ -156,6 +167,7 @@ input:checked+.slider:before {
   position: relative;
   background-image: linear-gradient(0deg, rgba(173, 92, 92, 1) 9%, rgba(168, 223, 214, 1) 78%, rgba(168, 223, 214, 1) 78%);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  /* font-family: "font_2"; */
 }
 
 /* .timer::before {
@@ -214,8 +226,9 @@ input:checked+.slider:before {
 }
 
 .status {
-  margin-bottom: 15px;
   color: #ad5c5c;
+  font-size: 16px;
+  font-family: "font";
 }
 
 .time {
@@ -230,7 +243,8 @@ input:checked+.slider:before {
 }
 
 #minutes {
-  font-size: 6em;
+  font-size: 5em;
+  width: 77px;
   float: left;
   margin-left: 25%;
   color: white
@@ -239,6 +253,7 @@ input:checked+.slider:before {
 #seconds {
   font-size: 4em;
   float: left;
+  margin-top: 5px;
   color: white;
 }
 
@@ -296,16 +311,15 @@ input:checked+.slider:before {
 .input-group {
   /* margin-top: 20px; */
   float: left;
-  width: 50%;
   padding: 10px;
-  width: 32%;
+  width: 132px;
 }
 
 .inputs::after {
   content: " ";
   display: block;
   clear: both;
-  /* width: 50%; */
+  width: 75% !important;
   /* position: absolute; */
 }
 
@@ -315,8 +329,8 @@ input:checked+.slider:before {
   display: none;
   position: fixed;
   z-index: 1;
-  left: 281px;
-  top: 361px;
+  /* left: 19%; */
+  top: 368px;
   /* width: 87%; */
   height: 12%;
   overflow: auto;
@@ -327,6 +341,7 @@ input:checked+.slider:before {
 .tooltip {
   position: relative;
   display: inline-block;
+  /* border-bottom: 1px dotted black; */
   /* If you want dots under the hoverable text */
 }
 
@@ -334,22 +349,39 @@ input:checked+.slider:before {
 
 .tooltip .tooltiptext {
   visibility: hidden;
-  /* width: 75px; */
-  background-color: black;
-  opacity: 0.5;
+  width: 150px;
+  background-color: #555;
   color: #fff;
   text-align: center;
-  /* padding: 10px; */
+  padding: 5px 0;
   border-radius: 6px;
+  /* Position the tooltip text */
   position: absolute;
   z-index: 1;
-  bottom: 100%;
-  margin-left: -60px;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -75px;
+  /* Fade in tooltip */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+/* Tooltip arrow */
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
 }
 
 /* Show the tooltip text when you mouse over the tooltip container */
 
 .tooltip:hover .tooltiptext {
   visibility: visible;
-  font-size: 16px;
+  opacity: 1;
 }
