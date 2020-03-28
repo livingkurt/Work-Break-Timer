@@ -9,9 +9,9 @@ var minutesDisplay = document.querySelector("#minutes");
 var secondsDisplay = document.querySelector("#seconds");
 var workMinutesInput = document.querySelector("#work-minutes");
 var restMinutesInput = document.querySelector("#rest-minutes");
-var add_activity_list_item = document.querySelector(".add_button");
-var activity_input = document.querySelector(".activity_input");
-var activity_list_div = document.querySelector(".activity_list_div")
+var add_todo_list_item = document.querySelector(".add_button");
+var todo_input = document.querySelector(".todo_input");
+var todo_list_div = document.querySelector(".todo_list_div")
 var delete_button_e = document.querySelector(".delete_button")
 var audio = new Audio('./audio/Cherry.mp3');
 
@@ -90,6 +90,8 @@ function renderTime() {
       status = "Resting";
       document.getElementById("status-toggle").checked = false;
       document.querySelector("body").setAttribute("style", "background-image: linear-gradient(0deg, rgba(173, 92, 92, 1) 9%, rgba(168, 223, 214, 1) 78%, rgba(168, 223, 214, 1) 78%)")
+      add_todo_list_item.setAttribute("style", "background-color:rgba(168, 223, 214, 1);")
+      // todo_list_div.getAttribute("style", "display: none;")
     } else {
       audio.play();
       // alert("Time to get back to work!");
@@ -97,6 +99,8 @@ function renderTime() {
       document.getElementById("status-toggle").checked = true;
 
       document.querySelector("body").setAttribute("style", "background-image: linear-gradient(180deg, rgba(173, 92, 92, 1) 9%, rgba(168, 223, 214, 1) 78%, rgba(168, 223, 214, 1) 78%)")
+      add_todo_list_item.setAttribute("style", "background-color:rgba(173, 92, 92, 1);")
+      // todo_list_div.getAttribute("style", "display: flex;")
     }
     statusSpan.textContent = status;
 
@@ -135,19 +139,13 @@ function toggleStatus(event) {
   if (checked) {
     status = "Working";
     document.querySelector("body").setAttribute("style", "background: linear-gradient(180deg, rgba(173, 92, 92, 1) 9%, rgba(168, 223, 214, 1) 78%, rgba(168, 223, 214, 1) 78%)")
-    add_activity_list_item.setAttribute("style", "background-color:rgba(173, 92, 92, 1);")
-    // for (let i = 180; i >= 0; i++) {
-    //   document.querySelector("body").setAttribute("style", `background: linear-gradient(${i}deg, rgba(173, 92, 92, 1) 9%, rgba(168, 223, 214, 1) 78%, rgba(168, 223, 214, 1) 78%)`)
-    // }
+    add_todo_list_item.setAttribute("style", "background-color:rgba(173, 92, 92, 1);")
 
   } else {
     status = "Resting";
 
     document.querySelector("body").setAttribute("style", "background: linear-gradient(0deg, rgba(173, 92, 92, 1) 9%, rgba(168, 223, 214, 1) 78%, rgba(168, 223, 214, 1) 78%)")
-    add_activity_list_item.setAttribute("style", "background-color:rgba(168, 223, 214, 1);")
-    // for (let i = 0; i < 180; i++) {
-    //   document.querySelector("body").setAttribute("style", `background: linear-gradient(${i}deg, rgba(173, 92, 92, 1) 9%, rgba(168, 223, 214, 1) 78%, rgba(168, 223, 214, 1) 78%)`)
-    // }
+    add_todo_list_item.setAttribute("style", "background-color:rgba(168, 223, 214, 1);")
   }
 
   statusSpan.textContent = status;
@@ -185,25 +183,23 @@ function setTimePreferences() {
 }
 
 let id = 0
-const add_activity = () => {
+const add_todo = () => {
   id++
-  // console.log(document.querySelector(".activity_input").value)
   let list_item_div = document.createElement("div");
   let list_item = document.createElement("li");
   let delete_button = document.createElement("button");
-  list_item.textContent = document.querySelector(".activity_input").value
+  list_item.textContent = document.querySelector(".todo_input").value
   delete_button.innerHTML = `<i data=${id} class='fas fa-minus-circle'></i>`
   list_item_div.setAttribute("class", "list_item_div")
   list_item_div.setAttribute("id", id)
-
   delete_button.setAttribute("style", "background-color: unset; border: 0px; font-size: 25px; color: #ad5c5c; outline: none;")
   delete_button.setAttribute("class", "zoom delete_button")
   list_item_div.append(list_item, delete_button)
-  activity_list_div.prepend(list_item_div)
-  document.querySelector(".activity_input").value = ""
+  todo_list_div.prepend(list_item_div)
+  document.querySelector(".todo_input").value = ""
 }
 
-const delete_activity = (e) => {
+const delete_todo = (e) => {
   console.log(e.target)
 }
 
@@ -251,8 +247,8 @@ playButton.addEventListener("click", startTimer);
 pauseButton.addEventListener("click", pauseTimer);
 stopButton.addEventListener("click", stopTimer);
 statusToggle.addEventListener("change", toggleStatus);
-add_activity_list_item.addEventListener("click", add_activity);
-// delete_button_e.addEventListener("click", delete_activity);
+add_todo_list_item.addEventListener("click", add_todo);
+// delete_button_e.addEventListener("click", delete_todo);
 document.addEventListener('click', (e) => {
   const id = e.target.getAttribute('data')
   // console.log(id)
