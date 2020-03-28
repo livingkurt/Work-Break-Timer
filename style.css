@@ -73,6 +73,7 @@ input {
   color: #ad5c5c;
   width: 100%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  font-family: "font_2";
 }
 
 .list_item_div {
@@ -90,6 +91,7 @@ input {
   color: #ad5c5c;
   width: 88%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  font-family: "font_2";
 }
 
 label {
@@ -281,6 +283,7 @@ input:checked+.slider:before {
   border-radius: 5px !important;
   font-size: 1.5em;
   background-color: #ad5c5c;
+  font-family: "font_2";
   border: none;
   color: white;
   cursor: pointer;
