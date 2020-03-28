@@ -7,10 +7,15 @@ var time_div = document.querySelector(".time");
 var inputs = document.querySelector(".inputs");
 var minutesDisplay = document.querySelector("#minutes");
 var secondsDisplay = document.querySelector("#seconds");
+var totalminutesDisplay = document.querySelector("#total_minutes");
+var totalsecondsDisplay = document.querySelector("#total_seconds");
 var workMinutesInput = document.querySelector("#work-minutes");
 var restMinutesInput = document.querySelector("#rest-minutes");
 var add_todo_list_item = document.querySelector(".add_button");
 var todo_input = document.querySelector(".todo_input");
+var reset_button_e = document.querySelector(".reset_button");
+var sessions_e = document.querySelector("#sessions");
+var total_time_e = document.querySelector("#total_time");
 var todo_list_div = document.querySelector(".todo_list_div")
 var delete_button_e = document.querySelector(".delete_button")
 var audio = new Audio('./audio/Cherry.mp3');
@@ -29,6 +34,7 @@ var formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
 
 var totalSeconds = 0;
 var secondsElapsed = 0;
+var secondsElapsedTotal = 0;
 var status = "Working";
 var interval;
 
@@ -64,6 +70,37 @@ function getFormattedSeconds() {
   return formattedSeconds;
 }
 
+function getFormattedTotalMinutes() {
+  // var secondsLeft = totalSeconds + secondsElapsed;
+  var minutesLeftTotal = Math.floor(secondsElapsedTotal / 60);
+
+  var formattedMinutes;
+
+  if (minutesLeftTotal < 10) {
+    formattedMinutes = "0" + minutesLeftTotal;
+  } else {
+    formattedMinutes = minutesLeftTotal;
+  }
+
+  return formattedMinutes;
+}
+
+function getFormattedTotalSeconds() {
+  var secondsLeftTotal = (totalSeconds + secondsElapsedTotal) % 60;
+
+  var formattedSeconds;
+
+  if (formattedSeconds = secondsLeftTotal < 10) {
+
+    formattedSeconds = "0" + secondsLeftTotal;
+  } else {
+
+    formattedSeconds = secondsLeftTotal;
+  }
+
+  return formattedSeconds;
+}
+
 function setTime() {
   var minutes;
 
@@ -79,9 +116,19 @@ function setTime() {
   totalSeconds = minutes * 60;
 }
 
+
 function renderTime() {
   minutesDisplay.textContent = getFormattedMinutes()
-  secondsDisplay.textContent = ":" + getFormattedSeconds();
+  secondsDisplay.textContent = ": " + getFormattedSeconds();
+  totalminutesDisplay.textContent = getFormattedTotalMinutes()
+  if (parseInt(getFormattedTotalSeconds()) < 10) {
+    totalsecondsDisplay.textContent = getFormattedTotalSeconds()
+  }
+  else {
+    totalsecondsDisplay.textContent = getFormattedTotalSeconds()
+  }
+
+
 
   if (secondsElapsed >= totalSeconds) {
     if (status === "Working") {
@@ -112,11 +159,19 @@ function renderTime() {
   }
 }
 
+let session_num = 0
+
 function startTimer() {
+  if (status === "Working") {
+    session_num++
+    total_time_e
+  }
   setTime();
   audio.pause();
+  sessions_e.textContent = "Session: " + session_num
   interval = setInterval(function () {
     secondsElapsed++;
+    secondsElapsedTotal++;
     renderTime();
   }, 1000);
 }
@@ -140,19 +195,25 @@ function toggleStatus(event) {
     status = "Working";
     document.querySelector("body").setAttribute("style", "background: linear-gradient(180deg, rgba(173, 92, 92, 1) 9%, rgba(168, 223, 214, 1) 78%, rgba(168, 223, 214, 1) 78%)")
     add_todo_list_item.setAttribute("style", "background-color:rgba(173, 92, 92, 1);")
+    reset_button_e.setAttribute("style", "background-color:rgba(168, 223, 214, 1);")
 
   } else {
     status = "Resting";
 
     document.querySelector("body").setAttribute("style", "background: linear-gradient(0deg, rgba(173, 92, 92, 1) 9%, rgba(168, 223, 214, 1) 78%, rgba(168, 223, 214, 1) 78%)")
     add_todo_list_item.setAttribute("style", "background-color:rgba(168, 223, 214, 1);")
+    reset_button_e.setAttribute("style", "background-color:rgba(173, 92, 92, 1);")
+
   }
-
   statusSpan.textContent = status;
-
   secondsElapsed = 0;
   setTime();
   renderTime();
+}
+
+function reset_stats() {
+  session_num = 0
+  sessions_e.textContent = "Session: " + session_num
 }
 
 function getTimePreferences() {
@@ -224,30 +285,12 @@ const show_time_modifiers = () => {
 
 
 
-// // When the user clicks on the button, open the modal
-// btn.onclick = function () {
-//   modal.style.display = "block";
-// }
-
-// // When the user clicks on <span> (x), close the modal
-// span.onclick = function () {
-//   modal.style.display = "none";
-// }
-
-// // When the user clicks anywhere outside of the modal, close it
-// window.onclick = function (event) {
-//   if (event.target == modal) {
-//     modal.style.display = "none";
-//   }
-// }
-
-
-
 playButton.addEventListener("click", startTimer);
 pauseButton.addEventListener("click", pauseTimer);
 stopButton.addEventListener("click", stopTimer);
 statusToggle.addEventListener("change", toggleStatus);
 add_todo_list_item.addEventListener("click", add_todo);
+reset_button_e.addEventListener("click", reset_stats);
 // delete_button_e.addEventListener("click", delete_todo);
 document.addEventListener('click', (e) => {
   const id = e.target.getAttribute('data')
@@ -259,3 +302,14 @@ document.addEventListener('click', (e) => {
 
 })
 time_div.addEventListener("click", show_time_modifiers);
+
+// First we get the viewport height and we multiple it by 1% to get a value for a vh unit
+let vh = window.innerHeight * 0.01;
+// Then we set the value in the --vh custom property to the root of the document
+document.documentElement.style.setProperty('--vh', `${vh}px`);
+
+window.addEventListener('resize', () => {
+  // We execute the same script as before
+  let vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+});

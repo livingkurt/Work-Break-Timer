@@ -14,13 +14,19 @@
 
 <body>
   <header>
-    <h1>Work Break Timer</h1>
+    <h1 id="header">Work Break Timer</h1>
+    <div id="stats">
+      <div id="sessions" class="stats">Session: 0</div>
+      <div id="total_time" class="stats">Total Time:
+        <div id="total_minutes">00</div> :
+        <div id="total_seconds">00</div>
+      </div>
+      <button class="reset_button zoom ">Reset Stats</button>
+    </div>
   </header>
   <div class="container">
     <div class="timer_container">
       <div class="timer">
-        <!-- <div id="hand"></div> -->
-
         <div class="controls">
           <label class="switch" for="status-toggle">
             <input checked type="checkbox" name="status-toggle" id="status-toggle" />
@@ -60,11 +66,10 @@
 
       </div>
       <div class="todo_input_div">
-        <!-- <label>todo</label> -->
         <div class="add_todo">
           <input type="text" name="" class="todo_input" onfocus="this.placeholder = ''"
-            onblur="this.placeholder='Enter Todo'" placeholder="Enter Todo" /> <button
-            class="add_button zoom ">Add</button>
+            onblur="this.placeholder='Enter Todo'" placeholder="Enter Todo" />
+          <button class="add_button zoom ">Add</button>
         </div>
       </div>
     </div>

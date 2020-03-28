@@ -14,6 +14,8 @@
 
 html {
   height: 100vh;
+  /* Fallback for browsers that do not support Custom Properties */
+  height: calc(var(--vh, 1vh) * 100);
 }
 
 body {
@@ -220,6 +222,10 @@ input:checked+.slider:before {
   border-radius: 50%;
 }
 
+#header {
+  margin-bottom: 0px;
+}
+
 #hand::after {
   content: " ";
   display: block;
@@ -230,6 +236,17 @@ input:checked+.slider:before {
   border-radius: 50%;
   /* background-color: rgb(89, 192, 218); */
   background-color: #ad5c5c;
+}
+
+#stats {
+  font-size: 23px;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+.stats {
+  margin: 5px;
 }
 
 .controls {
@@ -246,7 +263,7 @@ input:checked+.slider:before {
 }
 
 .time {
-  width: 100%;
+  width: 68%;
   text-align: center;
 }
 
@@ -260,7 +277,7 @@ input:checked+.slider:before {
   font-size: 5em;
   width: 77px;
   float: left;
-  margin-left: 23%;
+  margin-left: 10%;
   color: white
 }
 
@@ -314,6 +331,23 @@ input:checked+.slider:before {
   display: flex;
 }
 
+#total_time {
+  display: flex;
+  flex-direction: row;
+}
+
+.reset_button {
+  height: unset !important;
+  margin: 0px 0px 0px 5px!important;
+  border-radius: 5px !important;
+  font-size: 21px;
+  background-color: rgba(168, 223, 214, 1);
+  font-family: "font_2";
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
 .action_buttons {
   height: 60px;
   width: 60px;
@@ -328,7 +362,7 @@ input:checked+.slider:before {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.action_buttons:focus, input:focus, .add_button:focus {
+.action_buttons:focus, input:focus, .add_button:focus, .reset_button:focus {
   outline: 0;
 }
 
