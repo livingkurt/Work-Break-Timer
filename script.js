@@ -7,10 +7,13 @@ var time_div = document.querySelector(".time");
 var inputs = document.querySelector(".inputs");
 var minutesDisplay = document.querySelector("#minutes");
 var secondsDisplay = document.querySelector("#seconds");
+var totalhoursDisplay = document.querySelector(".total_hours");
 var totalminutesDisplay = document.querySelector(".total_minutes");
 var totalsecondsDisplay = document.querySelector(".total_seconds");
+var workhoursDisplay = document.querySelector("#work_hours");
 var workminutesDisplay = document.querySelector("#work_minutes");
 var worksecondsDisplay = document.querySelector("#work_seconds");
+var breakhoursDisplay = document.querySelector("#break_hours");
 var breakminutesDisplay = document.querySelector("#break_minutes");
 var breaksecondsDisplay = document.querySelector("#break_seconds");
 var workMinutesInput = document.querySelector("#work-minutes");
@@ -45,7 +48,7 @@ var secondsElapsedBreak = 0;
 var status = "Working";
 var interval;
 
-getTimePreferences();
+// getTimePreferences();
 
 function getFormattedMinutes() {
   var secondsLeft = totalSeconds - secondsElapsed;
@@ -75,6 +78,21 @@ function getFormattedSeconds() {
   }
 
   return formattedSeconds;
+
+}
+function getFormattedTotalHours() {
+  // var secondsLeft = totalSeconds + secondsElapsed;
+  var hoursLeftTotal = Math.floor(secondsElapsedTotal / 60 / 60);
+
+  var formattedhours;
+
+  if (hoursLeftTotal < 10) {
+    formattedhours = "0" + hoursLeftTotal;
+  } else {
+    formattedhours = hoursLeftTotal;
+  }
+
+  return formattedhours;
 }
 
 function getFormattedTotalMinutes() {
@@ -108,6 +126,21 @@ function getFormattedTotalSeconds() {
   return formattedSeconds;
 }
 
+function getFormattedWorkHours() {
+  // var secondsLeft = totalSeconds + secondsElapsed;
+  var hoursLeftWork = Math.floor(secondsElapsedWork / 60 / 60);
+
+  var formattedhours;
+
+  if (hoursLeftWork < 10) {
+    formattedhours = "0" + hoursLeftWork;
+  } else {
+    formattedhours = hoursLeftWork;
+  }
+
+  return formattedhours;
+}
+
 function getFormattedWorkMinutes() {
   // var secondsLeft = totalSeconds + secondsElapsed;
   var minutesLeftWork = Math.floor(secondsElapsedWork / 60);
@@ -137,6 +170,21 @@ function getFormattedWorkSeconds() {
   }
 
   return formattedSeconds;
+}
+
+function getFormattedBreakHours() {
+  // var secondsLeft = totalSeconds + secondsElapsed;
+  var hoursLeftBreak = Math.floor(secondsElapsedBreak / 60 / 60);
+
+  var formattedhours;
+
+  if (hoursLeftBreak < 10) {
+    formattedhours = "0" + hoursLeftBreak;
+  } else {
+    formattedhours = hoursLeftBreak;
+  }
+
+  return formattedhours;
 }
 
 function getFormattedBreakMinutes() {
@@ -190,17 +238,21 @@ function renderTime() {
   minutesDisplay.textContent = " " + getFormattedMinutes()
   secondsDisplay.textContent = ": " + getFormattedSeconds();
 
-
+  totalhoursDisplay.textContent = getFormattedTotalHours()
   totalminutesDisplay.textContent = getFormattedTotalMinutes()
   totalsecondsDisplay.textContent = getFormattedTotalSeconds()
 
+  if (status === "Working") {
 
-  workminutesDisplay.textContent = getFormattedWorkMinutes()
-  worksecondsDisplay.textContent = getFormattedWorkSeconds()
-
-
-  breakminutesDisplay.textContent = getFormattedBreakMinutes()
-  breaksecondsDisplay.textContent = getFormattedBreakSeconds()
+    workhoursDisplay.textContent = getFormattedWorkHours()
+    workminutesDisplay.textContent = getFormattedWorkMinutes()
+    worksecondsDisplay.textContent = getFormattedWorkSeconds()
+  }
+  else if (status === "Resting") {
+    breakhoursDisplay.textContent = getFormattedBreakHours()
+    breakminutesDisplay.textContent = getFormattedBreakMinutes()
+    breaksecondsDisplay.textContent = getFormattedBreakSeconds()
+  }
 
 
 
@@ -297,10 +349,20 @@ function toggleStatus(event) {
 function reset_stats() {
   session_num = 0
   secondsLeftTotal = "00"
-  formattedMinutes = " 00"
+  // formattedMinutes = "00"
+  // formattedHours = "00"
   sessions_e.textContent = "Session: " + session_num
   totalminutesDisplay.textContent = secondsLeftTotal
   totalsecondsDisplay.textContent = secondsLeftTotal
+  totalhoursDisplay.textContent = secondsLeftTotal
+  totalminutesDisplay.textContent = secondsLeftTotal
+  totalsecondsDisplay.textContent = secondsLeftTotal
+  workhoursDisplay.textContent = secondsLeftTotal
+  workminutesDisplay.textContent = secondsLeftTotal
+  worksecondsDisplay.textContent = secondsLeftTotal
+  breakhoursDisplay.textContent = secondsLeftTotal
+  breakminutesDisplay.textContent = secondsLeftTotal
+  breaksecondsDisplay.textContent = secondsLeftTotal
 }
 
 function getTimePreferences() {
@@ -422,12 +484,6 @@ window.addEventListener('resize', () => {
   let vh = window.innerHeight * 0.01;
   document.documentElement.style.setProperty('--vh', `${vh}px`);
 });
-
-
-
-
-
-
 
 
 
