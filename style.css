@@ -226,6 +226,11 @@ input:checked+.slider:before {
   margin-bottom: 0px;
 }
 
+#work_time, #break_time, #total_time {
+  display: flex;
+  justify-content: center;
+}
+
 #hand::after {
   content: " ";
   display: block;
@@ -238,11 +243,29 @@ input:checked+.slider:before {
   background-color: #ad5c5c;
 }
 
-#stats {
+#work_hours, #break_hours, .total_hours {
+  margin-left: 5px;
+}
+
+#stats_div {
   font-size: 23px;
   margin-bottom: 15px;
   display: flex;
   justify-content: center;
+  position: relative;
+}
+
+#stats_modal {
+  margin: 5px;
+  position: absolute;
+  display: block;
+  z-index: 1;
+  top: 76px;
+  background: #ffffffe8;
+  width: 293px;
+  border-radius: 15px;
+  padding: 15px;
+  color: #ad5c5c;
 }
 
 .stats {
@@ -348,6 +371,18 @@ input:checked+.slider:before {
   cursor: pointer;
 }
 
+.view_stats_button {
+  height: unset !important;
+  margin: 0px 0px 0px 5px!important;
+  border-radius: 5px !important;
+  font-size: 21px;
+  background-color: rgba(168, 223, 214, 1);
+  font-family: "font_2";
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
 .action_buttons {
   height: 60px;
   width: 60px;
@@ -362,7 +397,7 @@ input:checked+.slider:before {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.action_buttons:focus, input:focus, .add_button:focus, .reset_button:focus {
+.action_buttons:focus, input:focus, .add_button:focus, .reset_button:focus, .view_stats_button:focus {
   outline: 0;
 }
 
@@ -387,6 +422,19 @@ input:checked+.slider:before {
   display: none;
   position: fixed;
   z-index: 1;
+  /* left: 19%; */
+  top: 368px;
+  /* width: 87%; */
+  height: 12%;
+  overflow: auto;
+  /* background-color: rgb(0, 0, 0); */
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.stats_modal {
+  display: none;
+  position: fixed;
+  z-index: 2;
   /* left: 19%; */
   top: 368px;
   /* width: 87%; */

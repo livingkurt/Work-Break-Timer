@@ -15,13 +15,35 @@
 <body>
   <header>
     <h1 id="header">Work Break Timer</h1>
-    <div id="stats">
+    <div id="stats_div">
       <div id="sessions" class="stats">Session: 0</div>
-      <div id="total_time" class="stats">Total Time:
-        <div id="total_minutes">00</div> :
-        <div id="total_seconds">00</div>
+      <div id="total_time" class="stats">
+        Total Time:
+        <div class="total_hours">00</div> :
+        <div class="total_minutes">00</div> :
+        <div class="total_seconds">00</div>
       </div>
-      <button class="reset_button zoom ">Reset Stats</button>
+      <div style="display: none;" id="stats_modal">
+        <!-- <div id="total_time" class="stats">
+        Total Time:
+        <div class="total_minutes">00</div> :
+        <div class="total_seconds">00</div>
+      </div> -->
+        <div id="work_time" class="stats">
+          Work Time:
+          <div id="work_hours">00</div> :
+          <div id="work_minutes">00</div> :
+          <div id="work_seconds">00</div>
+        </div>
+        <div id="break_time" class="stats">
+          Break Time:
+          <div id="break_hours">00</div> :
+          <div id="break_minutes">00</div> :
+          <div id="break_seconds">00</div>
+        </div>
+        <button class="reset_button zoom ">Reset Stats</button>
+      </div>
+      <button class="view_stats_button zoom ">View Stats</button>
     </div>
   </header>
   <div class="container">
@@ -35,7 +57,7 @@
           <div class="status">Status: <span id="status">Working</span></div>
           <div class="time zoom tooltip">
             <div id="minutes">52</div>
-            <div id="seconds">00</div>
+            <div id="seconds">:00</div>
             <span class="tooltiptext">Click to Modify Time</span>
           </div>
           <div class="buttons">
@@ -51,7 +73,7 @@
           </div>
         </div>
       </div>
-      <div class="inputs modal" style="display: none;" id="myModal">
+      <div class="inputs modal" style="display: none;" id="time_modifier_modal">
         <div class="input-group">
           <label for="work-minutes">Minutes of Work</label>
           <input type="number" name="work" id="work-minutes" value="52" />
