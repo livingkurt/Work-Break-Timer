@@ -191,10 +191,6 @@ function renderTime() {
     }
     statusSpan.textContent = status;
 
-    // secondsElapsed = 0;
-    // setTime();
-    // renderTime();
-
     stopTimer();
   }
 }
@@ -244,13 +240,14 @@ function toggleStatus(event) {
     document.querySelector("body").setAttribute("style", "background: linear-gradient(180deg, rgba(173, 92, 92, 1) 9%, rgba(168, 223, 214, 1) 78%, rgba(168, 223, 214, 1) 78%)")
     add_todo_list_item.setAttribute("style", "background-color:rgba(173, 92, 92, 1);")
     reset_button_e.setAttribute("style", "background-color:rgba(168, 223, 214, 1);")
+    view_stats_button_e.setAttribute("style", "background-color:rgba(168, 223, 214, 1);")
 
   } else {
     status = "Resting";
-
     document.querySelector("body").setAttribute("style", "background: linear-gradient(0deg, rgba(173, 92, 92, 1) 9%, rgba(168, 223, 214, 1) 78%, rgba(168, 223, 214, 1) 78%)")
     add_todo_list_item.setAttribute("style", "background-color:rgba(168, 223, 214, 1);")
     reset_button_e.setAttribute("style", "background-color:rgba(173, 92, 92, 1);")
+    view_stats_button_e.setAttribute("style", "background-color:rgba(173, 92, 92, 1);")
 
   }
   statusSpan.textContent = status;
