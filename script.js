@@ -84,197 +84,52 @@ function getFormattedSeconds() {
 
 }
 
-// const get_formatted_time_asc = () => {
-
-// }
-
-// const get_formatted_time_decs = () => {
-
-// }
-
 function get_formatted_hours() {
   // var secondsLeft = totalSeconds + secondsElapsed;
-  var hoursLeftTotal = Math.floor(secondsElapsedTotal / 60 / 60);
+  var hours_left = Math.floor(secondsElapsedTotal / 60 / 60);
 
-  var formatted_total_hours;
+  var formatted_hours;
 
-  if (hoursLeftTotal < 10) {
-    formatted_total_hours = "0" + hoursLeftTotal;
+  if (hours_left < 10) {
+    formatted_hours = "0" + hours_left;
   } else {
-    formatted_total_hours = hoursLeftTotal;
+    formatted_hours = hours_left;
   }
 
-  return formatted_total_hours;
+  return formatted_hours;
 }
 
 function get_formatted_minutes() {
   // var secondsLeft = totalSeconds + secondsElapsed;
-  var minutesLeftTotal = Math.floor(secondsElapsedTotal / 60);
+  var minutes_left = Math.floor(secondsElapsedTotal / 60);
 
-  var formatted_total_minutes;
+  var formatted_minutes;
 
-  if (minutesLeftTotal < 10) {
-    formatted_total_minutes = "0" + minutesLeftTotal;
+  if (minutes_left < 10) {
+    formatted_minutes = "0" + minutes_left;
   } else {
-    formatted_total_minutes = minutesLeftTotal;
+    formatted_minutes = minutes_left;
   }
 
-  return formatted_total_minutes;
+  return formatted_minutes;
 }
 
 function get_formatted_seconds() {
-  var secondsLeftTotal = (totalSeconds + secondsElapsedTotal) % 60;
+  var seconds_left = (totalSeconds + secondsElapsedTotal) % 60;
 
-  var formatted_total_seconds;
+  var formatted_seconds;
 
-  if (formatted_total_seconds = secondsLeftTotal < 10) {
+  if (formatted_seconds = seconds_left < 10) {
 
-    formatted_total_seconds = "0" + secondsLeftTotal;
+    formatted_seconds = "0" + seconds_left;
   } else {
 
-    formatted_total_seconds = secondsLeftTotal;
+    formatted_seconds = seconds_left;
   }
 
-  return formatted_total_seconds;
+  return formatted_seconds;
 }
 
-// function getFormattedTotalHours() {
-//   // var secondsLeft = totalSeconds + secondsElapsed;
-//   var hoursLeftTotal = Math.floor(secondsElapsedTotal / 60 / 60);
-
-//   var formatted_total_hours;
-
-//   if (hoursLeftTotal < 10) {
-//     formatted_total_hours = "0" + hoursLeftTotal;
-//   } else {
-//     formatted_total_hours = hoursLeftTotal;
-//   }
-
-//   return formatted_total_hours;
-// }
-
-// function getFormattedTotalMinutes() {
-//   // var secondsLeft = totalSeconds + secondsElapsed;
-//   var minutesLeftTotal = Math.floor(secondsElapsedTotal / 60);
-
-//   var formatted_total_minutes;
-
-//   if (minutesLeftTotal < 10) {
-//     formatted_total_minutes = "0" + minutesLeftTotal;
-//   } else {
-//     formatted_total_minutes = minutesLeftTotal;
-//   }
-
-//   return formatted_total_minutes;
-// }
-
-// function getFormattedTotalSeconds() {
-//   var secondsLeftTotal = (totalSeconds + secondsElapsedTotal) % 60;
-
-//   var formatted_total_seconds;
-
-//   if (formatted_total_seconds = secondsLeftTotal < 10) {
-
-//     formatted_total_seconds = "0" + secondsLeftTotal;
-//   } else {
-
-//     formatted_total_seconds = secondsLeftTotal;
-//   }
-
-//   return formatted_total_seconds;
-// }
-
-// function getFormattedWorkHours() {
-//   // var secondsLeft = totalSeconds + secondsElapsed;
-//   var hoursLeftWork = Math.floor(secondsElapsedWork / 60 / 60);
-
-//   var formatted_work_hours;
-
-//   if (hoursLeftWork < 10) {
-//     formatted_work_hours = "0" + hoursLeftWork;
-//   } else {
-//     formatted_work_hours = hoursLeftWork;
-//   }
-
-//   return formatted_work_hours;
-// }
-
-// function getFormattedWorkMinutes() {
-//   // var secondsLeft = totalSeconds + secondsElapsed;
-//   var minutesLeftWork = Math.floor(secondsElapsedWork / 60);
-
-//   var formatted_work_minutes;
-
-//   if (minutesLeftWork < 10) {
-//     formatted_work_minutes = "0" + minutesLeftWork;
-//   } else {
-//     formatted_work_minutes = minutesLeftWork;
-//   }
-
-//   return formatted_work_minutes;
-// }
-
-// function getFormattedWorkSeconds() {
-//   var secondsLeftWork = (totalSeconds + secondsElapsedWork) % 60;
-
-//   var formatted_work_seconds;
-
-//   if (formatted_work_seconds = secondsLeftWork < 10) {
-
-//     formatted_work_seconds = "0" + secondsLeftWork;
-//   } else {
-
-//     formatted_work_seconds = secondsLeftWork;
-//   }
-
-//   return formatted_work_seconds;
-// }
-
-// function getFormattedBreakHours() {
-//   // var secondsLeft = totalSeconds + secondsElapsed;
-//   var hoursLeftBreak = Math.floor(secondsElapsedBreak / 60 / 60);
-
-//   var formatted_break_hours;
-
-//   if (hoursLeftBreak < 10) {
-//     formatted_break_hours = "0" + hoursLeftBreak;
-//   } else {
-//     formatted_break_hours = hoursLeftBreak;
-//   }
-
-//   return formatted_break_hours;
-// }
-
-// function getFormattedBreakMinutes() {
-//   // var secondsLeft = totalSeconds + secondsElapsed;
-//   var minutesLeftBreak = Math.floor(secondsElapsedBreak / 60);
-
-//   var formatted_break_minutes;
-
-//   if (minutesLeftBreak < 10) {
-//     formatted_break_minutes = "0" + minutesLeftBreak;
-//   } else {
-//     formatted_break_minutes = minutesLeftBreak;
-//   }
-
-//   return formatted_break_minutes;
-// }
-
-// function getFormattedBreakSeconds() {
-//   var secondsLeftBreak = (totalSeconds + secondsElapsedBreak) % 60;
-
-//   var formatted_break_seconds;
-
-//   if (formatted_break_seconds = secondsLeftBreak < 10) {
-
-//     formatted_break_seconds = "0" + secondsLeftBreak;
-//   } else {
-
-//     formatted_break_seconds = secondsLeftBreak;
-//   }
-
-//   return formatted_break_seconds;
-// }
 
 function setTime() {
   var minutes;
@@ -412,17 +267,6 @@ function reset_stats() {
   session_num = 0
   totalSeconds = 0
   secondsLeftTotal = "00"
-  formattedMinutes = 0
-  formatted_total_hours = 0
-  formatted_total_minutes = 0
-  formatted_total_seconds = 0
-  formatted_work_hours = 0
-  formatted_work_minutes = 0
-  formatted_work_seconds = 0
-  formatted_break_hours = 0
-  formatted_break_minutes = 0
-  formatted_break_seconds = 0
-
   sessions_e.textContent = "Session: " + session_num
   totalminutesDisplay.textContent = secondsLeftTotal
   totalsecondsDisplay.textContent = secondsLeftTotal
@@ -485,44 +329,29 @@ const delete_todo = (e) => {
   console.log(e.target)
 }
 
-var time_modifier_modal = document.getElementById("time_modifier_modal");
+var time_modifier_modal = document.querySelector(".time_modifier_modal");
 
-// // Get the button that opens the time_modifier_modal
-// var btn = document.getElementById("myBtn");
-
-// // Get the <span> element that closes the time_modifier_modal
-// var span = document.getElementsByClassName("close")[0];
 
 const show_time_modifiers = () => {
   if (time_modifier_modal.getAttribute("style") === "display: none;") {
-    // console.log(inputs.getAttribute("style"))
     time_modifier_modal.setAttribute("style", "display: block; margin-left: 71px;")
   }
   else {
-    inputs.setAttribute("style", "display: none;")
+    time_modifier_modal.setAttribute("style", "display: none;")
   }
-  console.log(inputs)
 }
 
 
 
-var time_modifier_modal = document.getElementById("stats_modal");
-
-// // Get the button that opens the stats_modal
-// var btn = document.getElementById("myBtn");
-
-// // Get the <span> element that closes the stats_modal
-// var span = document.getElementsByClassName("close")[0];
+var stats_modal = document.getElementById("stats_modal");
 
 const show_stats = () => {
   if (stats_modal.getAttribute("style") === "display: none;") {
-    // console.log(inputs.getAttribute("style"))
     stats_modal.setAttribute("style", "display: block;")
   }
   else {
     stats_modal.setAttribute("style", "display: none;")
   }
-  console.log(inputs)
 }
 
 

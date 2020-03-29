@@ -405,12 +405,6 @@ const delete_todo = (e) => {
 
 var time_modifier_modal = document.getElementById("time_modifier_modal");
 
-// // Get the button that opens the time_modifier_modal
-// var btn = document.getElementById("myBtn");
-
-// // Get the <span> element that closes the time_modifier_modal
-// var span = document.getElementsByClassName("close")[0];
-
 const show_time_modifiers = () => {
   if (time_modifier_modal.getAttribute("style") === "display: none;") {
     // console.log(inputs.getAttribute("style"))
@@ -424,13 +418,7 @@ const show_time_modifiers = () => {
 
 
 
-var time_modifier_modal = document.getElementById("stats_modal");
-
-// // Get the button that opens the stats_modal
-// var btn = document.getElementById("myBtn");
-
-// // Get the <span> element that closes the stats_modal
-// var span = document.getElementsByClassName("close")[0];
+var stats_modal = document.getElementById("stats_modal");
 
 const show_stats = () => {
   if (stats_modal.getAttribute("style") === "display: none;") {

@@ -418,12 +418,12 @@ input:checked+.slider:before {
 
 /* The Modal (background) */
 
-.modal {
+.time_modifier_modal {
   display: none;
   position: fixed;
   z-index: 1;
   /* left: 19%; */
-  top: 368px;
+  top: 391px;
   /* width: 87%; */
   height: 12%;
   overflow: auto;
