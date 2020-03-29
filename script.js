@@ -1,23 +1,23 @@
-var statusSpan = document.querySelector("#status");
-var statusToggle = document.querySelector("#status-toggle");
-var playButton = document.querySelector("#play");
-var pauseButton = document.querySelector("#pause");
-var stopButton = document.querySelector("#stop");
+var status_span = document.querySelector("#status");
+var status_toggle = document.querySelector("#status-toggle");
+var play_button = document.querySelector("#play");
+var pause_button = document.querySelector("#pause");
+var stop_button = document.querySelector("#stop");
 var time_div = document.querySelector(".time");
 var inputs = document.querySelector(".inputs");
-var minutesDisplay = document.querySelector("#minutes");
-var secondsDisplay = document.querySelector("#seconds");
-var totalhoursDisplay = document.querySelector(".total_hours");
-var totalminutesDisplay = document.querySelector(".total_minutes");
-var totalsecondsDisplay = document.querySelector(".total_seconds");
-var workhoursDisplay = document.querySelector("#work_hours");
-var workminutesDisplay = document.querySelector("#work_minutes");
-var worksecondsDisplay = document.querySelector("#work_seconds");
-var breakhoursDisplay = document.querySelector("#break_hours");
-var breakminutesDisplay = document.querySelector("#break_minutes");
-var breaksecondsDisplay = document.querySelector("#break_seconds");
-var workMinutesInput = document.querySelector("#work-minutes");
-var restMinutesInput = document.querySelector("#rest-minutes");
+var minutes_display = document.querySelector("#minutes");
+var seconds_display = document.querySelector("#seconds");
+var total_hours_display = document.querySelector(".total_hours");
+var total_minutes_display = document.querySelector(".total_minutes");
+var total_seconds_display = document.querySelector(".total_seconds");
+var work_hours_display = document.querySelector("#work_hours");
+var work_minutes_display = document.querySelector("#work_minutes");
+var work_seconds_display = document.querySelector("#work_seconds");
+var break_hours_display = document.querySelector("#break_hours");
+var break_minutes_display = document.querySelector("#break_minutes");
+var break_seconds_display = document.querySelector("#break_seconds");
+var work_minutes_input = document.querySelector("#work-minutes");
+var rest_minutes_input = document.querySelector("#rest-minutes");
 var add_todo_list_item = document.querySelector(".add_button");
 var todo_input = document.querySelector(".todo_input");
 var reset_button_e = document.querySelector(".reset_button");
@@ -40,11 +40,11 @@ var seconds = "0" + date.getSeconds();
 var formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
 
 
-var totalSeconds = 0;
-var secondsElapsed = 0;
-var secondsElapsedTotal = 0;
-var secondsElapsedWork = 0;
-var secondsElapsedBreak = 0;
+var total_seconds = 0;
+var seconds_elapsed = 0;
+var seconds_elapsed_total = 0;
+var seconds_elapsed_work = 0;
+var seconds_elapsed_break = 0;
 var status = "Working";
 var interval;
 
@@ -54,39 +54,39 @@ var interval;
 
 
 function getFormattedMinutes() {
-  var secondsLeft = totalSeconds - secondsElapsed;
+  var seconds_left = total_seconds - seconds_elapsed;
 
-  var minutesLeft = Math.floor(secondsLeft / 60);
+  var minutes_left = Math.floor(seconds_left / 60);
 
   var formattedMinutes;
 
-  if (minutesLeft < 10) {
-    formattedMinutes = "0" + minutesLeft;
+  if (minutes_left < 10) {
+    formattedMinutes = "0" + minutes_left;
   } else {
-    formattedMinutes = minutesLeft;
+    formattedMinutes = minutes_left;
   }
 
   return formattedMinutes;
 }
 
 function getFormattedSeconds() {
-  var secondsLeft = (totalSeconds - secondsElapsed) % 60;
+  var seconds_left = (total_seconds - seconds_elapsed) % 60;
 
-  var formattedSeconds;
+  var formatted_seconds;
 
-  if (secondsLeft < 10) {
-    formattedSeconds = "0" + secondsLeft;
+  if (seconds_left < 10) {
+    formatted_seconds = "0" + seconds_left;
   } else {
-    formattedSeconds = secondsLeft;
+    formatted_seconds = seconds_left;
   }
 
-  return formattedSeconds;
+  return formatted_seconds;
 
 }
 
 function get_formatted_hours() {
-  // var secondsLeft = totalSeconds + secondsElapsed;
-  var hours_left = Math.floor(secondsElapsedTotal / 60 / 60);
+  // var seconds_left = total_seconds + seconds_elapsed;
+  var hours_left = Math.floor(seconds_elapsed_total / 60 / 60);
 
   var formatted_hours;
 
@@ -100,8 +100,8 @@ function get_formatted_hours() {
 }
 
 function get_formatted_minutes() {
-  // var secondsLeft = totalSeconds + secondsElapsed;
-  var minutes_left = Math.floor(secondsElapsedTotal / 60);
+  // var seconds_left = total_seconds + seconds_elapsed;
+  var minutes_left = Math.floor(seconds_elapsed_total / 60);
 
   var formatted_minutes;
 
@@ -115,7 +115,7 @@ function get_formatted_minutes() {
 }
 
 function get_formatted_seconds() {
-  var seconds_left = (totalSeconds + secondsElapsedTotal) % 60;
+  var seconds_left = (total_seconds + seconds_elapsed_total) % 60;
 
   var formatted_seconds;
 
@@ -135,42 +135,42 @@ function setTime() {
   var minutes;
 
   if (status === "Working") {
-    // minutes = workMinutesInput.value.trim();
-    minutes = workMinutesInput.value.trim() || 52
+    // minutes = work_minutes_input.value.trim();
+    minutes = work_minutes_input.value.trim() || 52
   } else {
-    minutes = restMinutesInput.value.trim() || 17
+    minutes = rest_minutes_input.value.trim() || 17
     // minutes = 17
   }
 
   clearInterval(interval);
-  totalSeconds = minutes * 60;
+  total_seconds = minutes * 60;
 }
 
 
 function renderTime() {
-  minutesDisplay.textContent = " " + getFormattedMinutes()
-  secondsDisplay.textContent = ": " + getFormattedSeconds();
+  minutes_display.textContent = " " + getFormattedMinutes()
+  seconds_display.textContent = ": " + getFormattedSeconds();
 
-  totalhoursDisplay.textContent = get_formatted_hours()
-  totalminutesDisplay.textContent = get_formatted_minutes()
-  totalsecondsDisplay.textContent = get_formatted_seconds()
+  total_hours_display.textContent = get_formatted_hours()
+  total_minutes_display.textContent = get_formatted_minutes()
+  total_seconds_display.textContent = get_formatted_seconds()
 
   if (status === "Working") {
 
-    workhoursDisplay.textContent = get_formatted_hours()
-    workminutesDisplay.textContent = get_formatted_minutes()
-    worksecondsDisplay.textContent = get_formatted_seconds()
+    work_hours_display.textContent = get_formatted_hours()
+    work_minutes_display.textContent = get_formatted_minutes()
+    work_seconds_display.textContent = get_formatted_seconds()
   }
   else if (status === "Resting") {
-    breakhoursDisplay.textContent = get_formatted_hours()
-    breakminutesDisplay.textContent = get_formatted_minutes()
-    breaksecondsDisplay.textContent = get_formatted_seconds()
+    break_hours_display.textContent = get_formatted_hours()
+    break_minutes_display.textContent = get_formatted_minutes()
+    break_seconds_display.textContent = get_formatted_seconds()
   }
 
 
 
 
-  if (secondsElapsed >= totalSeconds) {
+  if (seconds_elapsed >= total_seconds) {
     if (status === "Working") {
       audio.play();
       // alert("Time for a break!");
@@ -189,7 +189,7 @@ function renderTime() {
       add_todo_list_item.setAttribute("style", "background-color:rgba(173, 92, 92, 1);")
       // todo_list_div.getAttribute("style", "display: flex;")
     }
-    statusSpan.textContent = status;
+    status_span.textContent = status;
 
     stopTimer();
   }
@@ -206,13 +206,13 @@ function startTimer() {
   audio.pause();
   sessions_e.textContent = "Session: " + session_num
   interval = setInterval(function () {
-    secondsElapsed++;
-    secondsElapsedTotal++;
+    seconds_elapsed++;
+    seconds_elapsed_total++;
     if (status === "Working") {
-      secondsElapsedWork++;
+      seconds_elapsed_work++;
     }
     else if (status === "Resting") {
-      secondsElapsedBreak++;
+      seconds_elapsed_break++;
     }
 
 
@@ -227,7 +227,7 @@ function pauseTimer() {
 }
 
 function stopTimer() {
-  secondsElapsed = 0;
+  seconds_elapsed = 0;
   setTime();
   renderTime();
 }
@@ -250,32 +250,32 @@ function toggleStatus(event) {
     view_stats_button_e.setAttribute("style", "background-color:rgba(173, 92, 92, 1);")
 
   }
-  statusSpan.textContent = status;
-  secondsElapsed = 0;
+  status_span.textContent = status;
+  seconds_elapsed = 0;
   setTime();
   renderTime();
 }
 
 function reset_stats() {
-  secondsElapsed = 0;
-  secondsElapsedTotal = 0;
-  secondsElapsedWork = 0;
-  secondsElapsedBreak = 0;
+  seconds_elapsed = 0;
+  seconds_elapsed_total = 0;
+  seconds_elapsed_work = 0;
+  seconds_elapsed_break = 0;
   session_num = 0
-  totalSeconds = 0
-  secondsLeftTotal = "00"
+  total_seconds = 0
+  seconds_left = "00"
   sessions_e.textContent = "Session: " + session_num
-  totalminutesDisplay.textContent = secondsLeftTotal
-  totalsecondsDisplay.textContent = secondsLeftTotal
-  totalhoursDisplay.textContent = secondsLeftTotal
-  totalminutesDisplay.textContent = secondsLeftTotal
-  totalsecondsDisplay.textContent = secondsLeftTotal
-  workhoursDisplay.textContent = secondsLeftTotal
-  workminutesDisplay.textContent = secondsLeftTotal
-  worksecondsDisplay.textContent = secondsLeftTotal
-  breakhoursDisplay.textContent = secondsLeftTotal
-  breakminutesDisplay.textContent = secondsLeftTotal
-  breaksecondsDisplay.textContent = secondsLeftTotal
+  total_minutes_display.textContent = seconds_left
+  total_seconds_display.textContent = seconds_left
+  total_hours_display.textContent = seconds_left
+  total_minutes_display.textContent = seconds_left
+  total_seconds_display.textContent = seconds_left
+  work_hours_display.textContent = seconds_left
+  work_minutes_display.textContent = seconds_left
+  work_seconds_display.textContent = seconds_left
+  break_hours_display.textContent = seconds_left
+  break_minutes_display.textContent = seconds_left
+  break_seconds_display.textContent = seconds_left
 }
 
 function getTimePreferences() {
@@ -283,11 +283,11 @@ function getTimePreferences() {
 
   if (preferences) {
     if (preferences.workMinutes) {
-      workMinutesInput.value = preferences.workMinutes;
+      work_minutes_input.value = preferences.workMinutes;
     }
 
     if (preferences.restMinutes) {
-      restMinutesInput.value = preferences.restMinutes;
+      rest_minutes_input.value = preferences.restMinutes;
     }
   }
 
@@ -299,8 +299,8 @@ function setTimePreferences() {
   localStorage.setItem(
     "preferences",
     JSON.stringify({
-      workMinutes: workMinutesInput.value.trim(),
-      restMinutes: restMinutesInput.value.trim()
+      workMinutes: work_minutes_input.value.trim(),
+      restMinutes: rest_minutes_input.value.trim()
     })
   );
 }
@@ -353,10 +353,10 @@ const show_stats = () => {
 
 
 
-playButton.addEventListener("click", startTimer);
-pauseButton.addEventListener("click", pauseTimer);
-stopButton.addEventListener("click", stopTimer);
-statusToggle.addEventListener("change", toggleStatus);
+play_button.addEventListener("click", startTimer);
+pause_button.addEventListener("click", pauseTimer);
+stop_button.addEventListener("click", stopTimer);
+status_toggle.addEventListener("change", toggleStatus);
 add_todo_list_item.addEventListener("click", add_todo);
 reset_button_e.addEventListener("click", reset_stats);
 // delete_button_e.addEventListener("click", delete_todo);
