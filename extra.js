@@ -84,138 +84,138 @@ function getFormattedTotalHours() {
   // var secondsLeft = totalSeconds + secondsElapsed;
   var hoursLeftTotal = Math.floor(secondsElapsedTotal / 60 / 60);
 
-  var formatted_total_hours;
+  var formattedhours;
 
   if (hoursLeftTotal < 10) {
-    formatted_total_hours = "0" + hoursLeftTotal;
+    formattedhours = "0" + hoursLeftTotal;
   } else {
-    formatted_total_hours = hoursLeftTotal;
+    formattedhours = hoursLeftTotal;
   }
 
-  return formatted_total_hours;
+  return formattedhours;
 }
 
 function getFormattedTotalMinutes() {
   // var secondsLeft = totalSeconds + secondsElapsed;
   var minutesLeftTotal = Math.floor(secondsElapsedTotal / 60);
 
-  var formatted_total_minutes;
+  var formattedMinutes;
 
   if (minutesLeftTotal < 10) {
-    formatted_total_minutes = "0" + minutesLeftTotal;
+    formattedMinutes = "0" + minutesLeftTotal;
   } else {
-    formatted_total_minutes = minutesLeftTotal;
+    formattedMinutes = minutesLeftTotal;
   }
 
-  return formatted_total_minutes;
+  return formattedMinutes;
 }
 
 function getFormattedTotalSeconds() {
   var secondsLeftTotal = (totalSeconds + secondsElapsedTotal) % 60;
 
-  var formatted_total_seconds;
+  var formattedSeconds;
 
-  if (formatted_total_seconds = secondsLeftTotal < 10) {
+  if (formattedSeconds = secondsLeftTotal < 10) {
 
-    formatted_total_seconds = "0" + secondsLeftTotal;
+    formattedSeconds = "0" + secondsLeftTotal;
   } else {
 
-    formatted_total_seconds = secondsLeftTotal;
+    formattedSeconds = secondsLeftTotal;
   }
 
-  return formatted_total_seconds;
+  return formattedSeconds;
 }
 
 function getFormattedWorkHours() {
   // var secondsLeft = totalSeconds + secondsElapsed;
   var hoursLeftWork = Math.floor(secondsElapsedWork / 60 / 60);
 
-  var formatted_work_hours;
+  var formattedhours;
 
   if (hoursLeftWork < 10) {
-    formatted_work_hours = "0" + hoursLeftWork;
+    formattedhours = "0" + hoursLeftWork;
   } else {
-    formatted_work_hours = hoursLeftWork;
+    formattedhours = hoursLeftWork;
   }
 
-  return formatted_work_hours;
+  return formattedhours;
 }
 
 function getFormattedWorkMinutes() {
   // var secondsLeft = totalSeconds + secondsElapsed;
   var minutesLeftWork = Math.floor(secondsElapsedWork / 60);
 
-  var formatted_work_minutes;
+  var formattedMinutes;
 
   if (minutesLeftWork < 10) {
-    formatted_work_minutes = "0" + minutesLeftWork;
+    formattedMinutes = "0" + minutesLeftWork;
   } else {
-    formatted_work_minutes = minutesLeftWork;
+    formattedMinutes = minutesLeftWork;
   }
 
-  return formatted_work_minutes;
+  return formattedMinutes;
 }
 
 function getFormattedWorkSeconds() {
   var secondsLeftWork = (totalSeconds + secondsElapsedWork) % 60;
 
-  var formatted_work_seconds;
+  var formattedSeconds;
 
-  if (formatted_work_seconds = secondsLeftWork < 10) {
+  if (formattedSeconds = secondsLeftWork < 10) {
 
-    formatted_work_seconds = "0" + secondsLeftWork;
+    formattedSeconds = "0" + secondsLeftWork;
   } else {
 
-    formatted_work_seconds = secondsLeftWork;
+    formattedSeconds = secondsLeftWork;
   }
 
-  return formatted_work_seconds;
+  return formattedSeconds;
 }
 
 function getFormattedBreakHours() {
   // var secondsLeft = totalSeconds + secondsElapsed;
   var hoursLeftBreak = Math.floor(secondsElapsedBreak / 60 / 60);
 
-  var formatted_break_hours;
+  var formattedhours;
 
   if (hoursLeftBreak < 10) {
-    formatted_break_hours = "0" + hoursLeftBreak;
+    formattedhours = "0" + hoursLeftBreak;
   } else {
-    formatted_break_hours = hoursLeftBreak;
+    formattedhours = hoursLeftBreak;
   }
 
-  return formatted_break_hours;
+  return formattedhours;
 }
 
 function getFormattedBreakMinutes() {
   // var secondsLeft = totalSeconds + secondsElapsed;
   var minutesLeftBreak = Math.floor(secondsElapsedBreak / 60);
 
-  var formatted_break_minutes;
+  var formattedMinutes;
 
   if (minutesLeftBreak < 10) {
-    formatted_break_minutes = "0" + minutesLeftBreak;
+    formattedMinutes = "0" + minutesLeftBreak;
   } else {
-    formatted_break_minutes = minutesLeftBreak;
+    formattedMinutes = minutesLeftBreak;
   }
 
-  return formatted_break_minutes;
+  return formattedMinutes;
 }
 
 function getFormattedBreakSeconds() {
   var secondsLeftBreak = (totalSeconds + secondsElapsedBreak) % 60;
 
-  var formatted_break_seconds;
+  var formattedSeconds;
 
-  if (formatted_break_seconds = secondsLeftBreak < 10) {
+  if (formattedSeconds = secondsLeftBreak < 10) {
 
-    formatted_break_seconds = "0" + secondsLeftBreak;
+    formattedSeconds = "0" + secondsLeftBreak;
   } else {
 
-    formatted_break_seconds = secondsLeftBreak;
+    formattedSeconds = secondsLeftBreak;
   }
 
-  return formatted_break_seconds;
+  return formattedSeconds;
 }
 
 function setTime() {
@@ -265,6 +265,8 @@ function renderTime() {
       document.getElementById("status-toggle").checked = false;
       document.querySelector("body").setAttribute("style", "background-image: linear-gradient(0deg, rgba(173, 92, 92, 1) 9%, rgba(168, 223, 214, 1) 78%, rgba(168, 223, 214, 1) 78%)")
       add_todo_list_item.setAttribute("style", "background-color:rgba(168, 223, 214, 1);")
+      view_stats_button_e.setAttribute("style", "background-color: rgba(168, 223, 214, 1)!important;")
+
       // todo_list_div.getAttribute("style", "display: none;")
     } else {
       audio.play();
@@ -274,6 +276,10 @@ function renderTime() {
 
       document.querySelector("body").setAttribute("style", "background-image: linear-gradient(180deg, rgba(173, 92, 92, 1) 9%, rgba(168, 223, 214, 1) 78%, rgba(168, 223, 214, 1) 78%)")
       add_todo_list_item.setAttribute("style", "background-color:rgba(173, 92, 92, 1);")
+      // view_stats_button_e.setAttribute("style", "background-color:rgba(173, 92, 92, 1);")
+      view_stats_button_e.setAttribute("style", "background-color: rgba(173, 92, 92, 1) !important;")
+
+
       // todo_list_div.getAttribute("style", "display: flex;")
     }
     statusSpan.textContent = status;
@@ -347,24 +353,10 @@ function toggleStatus(event) {
 }
 
 function reset_stats() {
-  secondsElapsed = 0;
-  secondsElapsedTotal = 0;
-  secondsElapsedWork = 0;
-  secondsElapsedBreak = 0;
   session_num = 0
-  totalSeconds = 0
   secondsLeftTotal = "00"
-  formattedMinutes = 0
-  formatted_total_hours = 0
-  formatted_total_minutes = 0
-  formatted_total_seconds = 0
-  formatted_work_hours = 0
-  formatted_work_minutes = 0
-  formatted_work_seconds = 0
-  formatted_break_hours = 0
-  formatted_break_minutes = 0
-  formatted_break_seconds = 0
-
+  // formattedMinutes = "00"
+  // formattedHours = "00"
   sessions_e.textContent = "Session: " + session_num
   totalminutesDisplay.textContent = secondsLeftTotal
   totalsecondsDisplay.textContent = secondsLeftTotal
@@ -379,22 +371,6 @@ function reset_stats() {
   breaksecondsDisplay.textContent = secondsLeftTotal
 }
 
-function getTimePreferences() {
-  var preferences = JSON.parse(localStorage.getItem("preferences"));
-
-  if (preferences) {
-    if (preferences.workMinutes) {
-      workMinutesInput.value = preferences.workMinutes;
-    }
-
-    if (preferences.restMinutes) {
-      restMinutesInput.value = preferences.restMinutes;
-    }
-  }
-
-  setTime();
-  renderTime();
-}
 
 function setTimePreferences() {
   localStorage.setItem(
@@ -481,7 +457,9 @@ document.addEventListener('click', (e) => {
   // console.log(id)
   const list_item_to_remove = document.getElementById(id)
   // console.log(list_item_to_remove)
-  list_item_to_remove.remove()
+  if (!list_item_to_remove === null) {
+    list_item_to_remove.remove()
+  }
   // document.removeChild(list_item_to_remove);
 
 })
@@ -498,44 +476,3 @@ window.addEventListener('resize', () => {
   let vh = window.innerHeight * 0.01;
   document.documentElement.style.setProperty('--vh', `${vh}px`);
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
