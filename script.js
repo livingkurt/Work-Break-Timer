@@ -50,6 +50,9 @@ var interval;
 
 // getTimePreferences();
 
+
+
+
 function getFormattedMinutes() {
   var secondsLeft = totalSeconds - secondsElapsed;
 
@@ -80,7 +83,16 @@ function getFormattedSeconds() {
   return formattedSeconds;
 
 }
-function getFormattedTotalHours() {
+
+// const get_formatted_time_asc = () => {
+
+// }
+
+// const get_formatted_time_decs = () => {
+
+// }
+
+function get_formatted_hours() {
   // var secondsLeft = totalSeconds + secondsElapsed;
   var hoursLeftTotal = Math.floor(secondsElapsedTotal / 60 / 60);
 
@@ -95,7 +107,7 @@ function getFormattedTotalHours() {
   return formatted_total_hours;
 }
 
-function getFormattedTotalMinutes() {
+function get_formatted_minutes() {
   // var secondsLeft = totalSeconds + secondsElapsed;
   var minutesLeftTotal = Math.floor(secondsElapsedTotal / 60);
 
@@ -110,7 +122,7 @@ function getFormattedTotalMinutes() {
   return formatted_total_minutes;
 }
 
-function getFormattedTotalSeconds() {
+function get_formatted_seconds() {
   var secondsLeftTotal = (totalSeconds + secondsElapsedTotal) % 60;
 
   var formatted_total_seconds;
@@ -126,97 +138,143 @@ function getFormattedTotalSeconds() {
   return formatted_total_seconds;
 }
 
-function getFormattedWorkHours() {
-  // var secondsLeft = totalSeconds + secondsElapsed;
-  var hoursLeftWork = Math.floor(secondsElapsedWork / 60 / 60);
+// function getFormattedTotalHours() {
+//   // var secondsLeft = totalSeconds + secondsElapsed;
+//   var hoursLeftTotal = Math.floor(secondsElapsedTotal / 60 / 60);
 
-  var formatted_work_hours;
+//   var formatted_total_hours;
 
-  if (hoursLeftWork < 10) {
-    formatted_work_hours = "0" + hoursLeftWork;
-  } else {
-    formatted_work_hours = hoursLeftWork;
-  }
+//   if (hoursLeftTotal < 10) {
+//     formatted_total_hours = "0" + hoursLeftTotal;
+//   } else {
+//     formatted_total_hours = hoursLeftTotal;
+//   }
 
-  return formatted_work_hours;
-}
+//   return formatted_total_hours;
+// }
 
-function getFormattedWorkMinutes() {
-  // var secondsLeft = totalSeconds + secondsElapsed;
-  var minutesLeftWork = Math.floor(secondsElapsedWork / 60);
+// function getFormattedTotalMinutes() {
+//   // var secondsLeft = totalSeconds + secondsElapsed;
+//   var minutesLeftTotal = Math.floor(secondsElapsedTotal / 60);
 
-  var formatted_work_minutes;
+//   var formatted_total_minutes;
 
-  if (minutesLeftWork < 10) {
-    formatted_work_minutes = "0" + minutesLeftWork;
-  } else {
-    formatted_work_minutes = minutesLeftWork;
-  }
+//   if (minutesLeftTotal < 10) {
+//     formatted_total_minutes = "0" + minutesLeftTotal;
+//   } else {
+//     formatted_total_minutes = minutesLeftTotal;
+//   }
 
-  return formatted_work_minutes;
-}
+//   return formatted_total_minutes;
+// }
 
-function getFormattedWorkSeconds() {
-  var secondsLeftWork = (totalSeconds + secondsElapsedWork) % 60;
+// function getFormattedTotalSeconds() {
+//   var secondsLeftTotal = (totalSeconds + secondsElapsedTotal) % 60;
 
-  var formatted_work_seconds;
+//   var formatted_total_seconds;
 
-  if (formatted_work_seconds = secondsLeftWork < 10) {
+//   if (formatted_total_seconds = secondsLeftTotal < 10) {
 
-    formatted_work_seconds = "0" + secondsLeftWork;
-  } else {
+//     formatted_total_seconds = "0" + secondsLeftTotal;
+//   } else {
 
-    formatted_work_seconds = secondsLeftWork;
-  }
+//     formatted_total_seconds = secondsLeftTotal;
+//   }
 
-  return formatted_work_seconds;
-}
+//   return formatted_total_seconds;
+// }
 
-function getFormattedBreakHours() {
-  // var secondsLeft = totalSeconds + secondsElapsed;
-  var hoursLeftBreak = Math.floor(secondsElapsedBreak / 60 / 60);
+// function getFormattedWorkHours() {
+//   // var secondsLeft = totalSeconds + secondsElapsed;
+//   var hoursLeftWork = Math.floor(secondsElapsedWork / 60 / 60);
 
-  var formatted_break_hours;
+//   var formatted_work_hours;
 
-  if (hoursLeftBreak < 10) {
-    formatted_break_hours = "0" + hoursLeftBreak;
-  } else {
-    formatted_break_hours = hoursLeftBreak;
-  }
+//   if (hoursLeftWork < 10) {
+//     formatted_work_hours = "0" + hoursLeftWork;
+//   } else {
+//     formatted_work_hours = hoursLeftWork;
+//   }
 
-  return formatted_break_hours;
-}
+//   return formatted_work_hours;
+// }
 
-function getFormattedBreakMinutes() {
-  // var secondsLeft = totalSeconds + secondsElapsed;
-  var minutesLeftBreak = Math.floor(secondsElapsedBreak / 60);
+// function getFormattedWorkMinutes() {
+//   // var secondsLeft = totalSeconds + secondsElapsed;
+//   var minutesLeftWork = Math.floor(secondsElapsedWork / 60);
 
-  var formatted_break_minutes;
+//   var formatted_work_minutes;
 
-  if (minutesLeftBreak < 10) {
-    formatted_break_minutes = "0" + minutesLeftBreak;
-  } else {
-    formatted_break_minutes = minutesLeftBreak;
-  }
+//   if (minutesLeftWork < 10) {
+//     formatted_work_minutes = "0" + minutesLeftWork;
+//   } else {
+//     formatted_work_minutes = minutesLeftWork;
+//   }
 
-  return formatted_break_minutes;
-}
+//   return formatted_work_minutes;
+// }
 
-function getFormattedBreakSeconds() {
-  var secondsLeftBreak = (totalSeconds + secondsElapsedBreak) % 60;
+// function getFormattedWorkSeconds() {
+//   var secondsLeftWork = (totalSeconds + secondsElapsedWork) % 60;
 
-  var formatted_break_seconds;
+//   var formatted_work_seconds;
 
-  if (formatted_break_seconds = secondsLeftBreak < 10) {
+//   if (formatted_work_seconds = secondsLeftWork < 10) {
 
-    formatted_break_seconds = "0" + secondsLeftBreak;
-  } else {
+//     formatted_work_seconds = "0" + secondsLeftWork;
+//   } else {
 
-    formatted_break_seconds = secondsLeftBreak;
-  }
+//     formatted_work_seconds = secondsLeftWork;
+//   }
 
-  return formatted_break_seconds;
-}
+//   return formatted_work_seconds;
+// }
+
+// function getFormattedBreakHours() {
+//   // var secondsLeft = totalSeconds + secondsElapsed;
+//   var hoursLeftBreak = Math.floor(secondsElapsedBreak / 60 / 60);
+
+//   var formatted_break_hours;
+
+//   if (hoursLeftBreak < 10) {
+//     formatted_break_hours = "0" + hoursLeftBreak;
+//   } else {
+//     formatted_break_hours = hoursLeftBreak;
+//   }
+
+//   return formatted_break_hours;
+// }
+
+// function getFormattedBreakMinutes() {
+//   // var secondsLeft = totalSeconds + secondsElapsed;
+//   var minutesLeftBreak = Math.floor(secondsElapsedBreak / 60);
+
+//   var formatted_break_minutes;
+
+//   if (minutesLeftBreak < 10) {
+//     formatted_break_minutes = "0" + minutesLeftBreak;
+//   } else {
+//     formatted_break_minutes = minutesLeftBreak;
+//   }
+
+//   return formatted_break_minutes;
+// }
+
+// function getFormattedBreakSeconds() {
+//   var secondsLeftBreak = (totalSeconds + secondsElapsedBreak) % 60;
+
+//   var formatted_break_seconds;
+
+//   if (formatted_break_seconds = secondsLeftBreak < 10) {
+
+//     formatted_break_seconds = "0" + secondsLeftBreak;
+//   } else {
+
+//     formatted_break_seconds = secondsLeftBreak;
+//   }
+
+//   return formatted_break_seconds;
+// }
 
 function setTime() {
   var minutes;
@@ -238,20 +296,20 @@ function renderTime() {
   minutesDisplay.textContent = " " + getFormattedMinutes()
   secondsDisplay.textContent = ": " + getFormattedSeconds();
 
-  totalhoursDisplay.textContent = getFormattedTotalHours()
-  totalminutesDisplay.textContent = getFormattedTotalMinutes()
-  totalsecondsDisplay.textContent = getFormattedTotalSeconds()
+  totalhoursDisplay.textContent = get_formatted_hours()
+  totalminutesDisplay.textContent = get_formatted_minutes()
+  totalsecondsDisplay.textContent = get_formatted_seconds()
 
   if (status === "Working") {
 
-    workhoursDisplay.textContent = getFormattedWorkHours()
-    workminutesDisplay.textContent = getFormattedWorkMinutes()
-    worksecondsDisplay.textContent = getFormattedWorkSeconds()
+    workhoursDisplay.textContent = get_formatted_hours()
+    workminutesDisplay.textContent = get_formatted_minutes()
+    worksecondsDisplay.textContent = get_formatted_seconds()
   }
   else if (status === "Resting") {
-    breakhoursDisplay.textContent = getFormattedBreakHours()
-    breakminutesDisplay.textContent = getFormattedBreakMinutes()
-    breaksecondsDisplay.textContent = getFormattedBreakSeconds()
+    breakhoursDisplay.textContent = get_formatted_hours()
+    breakminutesDisplay.textContent = get_formatted_minutes()
+    breaksecondsDisplay.textContent = get_formatted_seconds()
   }
 
 
