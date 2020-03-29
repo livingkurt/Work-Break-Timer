@@ -85,8 +85,6 @@ const get_formatted_seconds = (time_elapsed) => {
   return get_formatted_time(seconds_left);
 }
 
-
-
 const get_formatted_time = (time_left) => {
   let formatted_time;
   if (formatted_time = time_left < 10) {
@@ -128,28 +126,74 @@ const renderTime = () => {
     break_seconds_display.textContent = get_formatted_seconds(seconds_elapsed_break)
   }
   if (seconds_elapsed >= total_seconds) {
+    // render_styles(status)
     if (status === "Working") {
       audio.play();
-      status = "Resting";
-      document.getElementById("status-toggle").checked = false;
-      document.querySelector("body").setAttribute("style", "background-image: linear-gradient(0deg, rgba(173, 92, 92, 1) 9%, rgba(168, 223, 214, 1) 78%, rgba(168, 223, 214, 1) 78%)")
-      add_todo_list_item.setAttribute("style", "background-color:rgba(168, 223, 214, 1);")
+      render_styles_resting()
+      // status = "Resting";
+      // document.getElementById("status-toggle").checked = false;
+      // document.querySelector("body").setAttribute("style", "background-image: linear-gradient(0deg, rgba(173, 92, 92, 1) 9%, rgba(168, 223, 214, 1) 78%, rgba(168, 223, 214, 1) 78%)")
+      // add_todo_list_item.setAttribute("style", "background-color:rgba(168, 223, 214, 1);")
+      // view_stats_button_e.setAttribute("style", "background-color:rgba(173, 92, 92, 1);")
     }
     else {
       audio.play();
-      status = "Working";
-      document.getElementById("status-toggle").checked = true;
-      document.querySelector("body").setAttribute("style", "background-image: linear-gradient(180deg, rgba(173, 92, 92, 1) 9%, rgba(168, 223, 214, 1) 78%, rgba(168, 223, 214, 1) 78%)")
-      add_todo_list_item.setAttribute("style", "background-color:rgba(173, 92, 92, 1);")
+      render_styles_working()
+      // status = "Working";
+      // document.getElementById("status-toggle").checked = true;
+      // document.querySelector("body").setAttribute("style", "background-image: linear-gradient(180deg, rgba(173, 92, 92, 1) 9%, rgba(168, 223, 214, 1) 78%, rgba(168, 223, 214, 1) 78%)")
+      // add_todo_list_item.setAttribute("style", "background-color:rgba(173, 92, 92, 1);")
+      // view_stats_button_e.setAttribute("style", "background-color:rgba(168, 223, 214, 1);")
     }
     status_span.textContent = status;
     stopTimer();
   }
 }
 
-// const render_styles = () => {
+// const render_styles = (status, checked) => {
+//   console.log(checked)
 
+//   if (status === "Working") {
+//     if (checked === undefined) {
+//       audio.play();
+//       document.getElementById("status-toggle").checked = false;
+//     }
+//     status = "Resting";
+//     document.querySelector("body").setAttribute("style", "background-image: linear-gradient(0deg, rgba(173, 92, 92, 1) 9%, rgba(168, 223, 214, 1) 78%, rgba(168, 223, 214, 1) 78%)")
+//     add_todo_list_item.setAttribute("style", "background-color:rgba(168, 223, 214, 1);")
+//     reset_button_e.setAttribute("style", "background-color:rgba(173, 92, 92, 1);")
+//     view_stats_button_e.setAttribute("style", "background-color:rgba(173, 92, 92, 1);")
+//   }
+//   else {
+//     if (checked === undefined) {
+//       audio.play();
+//       document.getElementById("status-toggle").checked = true;
+//     }
+//     status = "Working";
+//     document.querySelector("body").setAttribute("style", "background-image: linear-gradient(180deg, rgba(173, 92, 92, 1) 9%, rgba(168, 223, 214, 1) 78%, rgba(168, 223, 214, 1) 78%)")
+//     add_todo_list_item.setAttribute("style", "background-color:rgba(173, 92, 92, 1);")
+//     reset_button_e.setAttribute("style", "background-color:rgba(168, 223, 214, 1);")
+//     view_stats_button_e.setAttribute("style", "background-color:rgba(168, 223, 214, 1);")
+
+//   }
 // }
+
+const render_styles_resting = () => {
+  status = "Resting";
+  document.querySelector("body").setAttribute("style", "background-image: linear-gradient(0deg, rgba(173, 92, 92, 1) 9%, rgba(168, 223, 214, 1) 78%, rgba(168, 223, 214, 1) 78%)")
+  add_todo_list_item.setAttribute("style", "background-color:rgba(168, 223, 214, 1);")
+  reset_button_e.setAttribute("style", "background-color:rgba(173, 92, 92, 1);")
+  view_stats_button_e.setAttribute("style", "background-color:rgba(173, 92, 92, 1);")
+}
+const render_styles_working = () => {
+  status = "Working";
+  document.querySelector("body").setAttribute("style", "background-image: linear-gradient(180deg, rgba(173, 92, 92, 1) 9%, rgba(168, 223, 214, 1) 78%, rgba(168, 223, 214, 1) 78%)")
+  add_todo_list_item.setAttribute("style", "background-color:rgba(173, 92, 92, 1);")
+  reset_button_e.setAttribute("style", "background-color:rgba(168, 223, 214, 1);")
+  view_stats_button_e.setAttribute("style", "background-color:rgba(168, 223, 214, 1);")
+
+}
+
 
 
 const startTimer = () => {
@@ -186,20 +230,22 @@ const stopTimer = () => {
 
 const toggleStatus = (event) => {
   let checked = event.target.checked;
-
+  // render_styles(status, checked)
   if (checked) {
-    status = "Working";
-    document.querySelector("body").setAttribute("style", "background: linear-gradient(180deg, rgba(173, 92, 92, 1) 9%, rgba(168, 223, 214, 1) 78%, rgba(168, 223, 214, 1) 78%)")
-    add_todo_list_item.setAttribute("style", "background-color:rgba(173, 92, 92, 1);")
-    reset_button_e.setAttribute("style", "background-color:rgba(168, 223, 214, 1);")
-    view_stats_button_e.setAttribute("style", "background-color:rgba(168, 223, 214, 1);")
+    render_styles_working()
+    // status = "Working";
+    // document.querySelector("body").setAttribute("style", "background: linear-gradient(180deg, rgba(173, 92, 92, 1) 9%, rgba(168, 223, 214, 1) 78%, rgba(168, 223, 214, 1) 78%)")
+    // add_todo_list_item.setAttribute("style", "background-color:rgba(173, 92, 92, 1);")
+    // reset_button_e.setAttribute("style", "background-color:rgba(168, 223, 214, 1);")
+    // view_stats_button_e.setAttribute("style", "background-color:rgba(168, 223, 214, 1);")
 
   } else {
-    status = "Resting";
-    document.querySelector("body").setAttribute("style", "background: linear-gradient(0deg, rgba(173, 92, 92, 1) 9%, rgba(168, 223, 214, 1) 78%, rgba(168, 223, 214, 1) 78%)")
-    add_todo_list_item.setAttribute("style", "background-color:rgba(168, 223, 214, 1);")
-    reset_button_e.setAttribute("style", "background-color:rgba(173, 92, 92, 1);")
-    view_stats_button_e.setAttribute("style", "background-color:rgba(173, 92, 92, 1);")
+    render_styles_resting()
+    // status = "Resting";
+    // document.querySelector("body").setAttribute("style", "background: linear-gradient(0deg, rgba(173, 92, 92, 1) 9%, rgba(168, 223, 214, 1) 78%, rgba(168, 223, 214, 1) 78%)")
+    // add_todo_list_item.setAttribute("style", "background-color:rgba(168, 223, 214, 1);")
+    // reset_button_e.setAttribute("style", "background-color:rgba(173, 92, 92, 1);")
+    // view_stats_button_e.setAttribute("style", "background-color:rgba(173, 92, 92, 1);")
 
   }
   status_span.textContent = status;
