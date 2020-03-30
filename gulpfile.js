@@ -23,12 +23,12 @@ function style() {
 function watch() {
   browserSync.init({
     server: {
-      baseDir: "./public"
+      baseDir: "."
     }
   });
   gulp.watch("./public/sass/style.scss", style);
-  gulp.watch("./public/*.html").on("change", browserSync.reload);
-  gulp.watch("./js/observers.js").on("change", browserSync.reload);
+  gulp.watch("./*.html").on("change", browserSync.reload);
+  gulp.watch("./public/js/script.js").on("change", browserSync.reload);
 }
 
 exports.style = style;

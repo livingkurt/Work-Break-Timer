@@ -45,7 +45,7 @@ const total_time_e = document.querySelector("#total_time");
 const status_span = document.querySelector("#status");
 
 // Audo
-const audio = new Audio('./audio/Cherry.mp3');
+const audio = new Audio('./public/audio/Cherry.mp3');
 
 // Initializing Variables
 let total_seconds = 0;
@@ -211,6 +211,7 @@ const stopTimer = () => {
 
 const toggleStatus = (event) => {
   let checked = event.target.checked;
+  audio.play();
   if (checked) {
     render_styles_working()
 
