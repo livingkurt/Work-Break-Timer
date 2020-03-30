@@ -1,26 +1,24 @@
+$main_font: "main_font";
+$marron: rgba(173, 92, 92, 1);
+$turquoise: rgba(168, 223, 214, 1);
+$box_shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+$show: flex;
+$hide: none;
+
+// @mixin {
+//   display: flex;
+//   justify-content: center;
+// }
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 @font-face {
   font-family: "main_font";
   src: url("../fonts/UniNeue-Light.otf");
-}
-
-$main_font: "main_font";
-$maroon: "#ad5c5c";
-// $turquoise: "rgba(168, 223, 214, 1)";
-$turquoise: "rgba(173, 92, 92, 1)";
-$gradient_180: linear-gradient(
-  180deg,
-  $marron 9%,
-  $turquoise 78%,
-  $turquoise 78%
-);
-$gradient_0: linear-gradient(0deg, $marron 9%, $turquoise 78%, $turquoise 78%);
-$box_shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
-@mixin flex_center {
-  display: flex;
-  justify-content: center;
-  margin: 0px auto;
-  text-align: center;
 }
 
 html {
@@ -34,10 +32,15 @@ body {
   background-color: #fdfdfd;
   /* font-family: "Josefin Sans", sans-serif; */
   font-family: $main_font;
-  background-image: $gradient_180;
+  background-image: linear-gradient(
+    180deg,
+    rgba(173, 92, 92, 1) 9%,
+    rgba(168, 223, 214, 1) 78%,
+    rgba(168, 223, 214, 1) 78%
+  );
   /* transition: 1s; */
   transition: background-image 5s linear;
-  /* box-shadow: $box_shadow */
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
 }
 
 .zoom {
@@ -80,10 +83,10 @@ h1 {
 
 input {
   border-radius: 5px;
-  border: none;
+  border: $hide;
   font-size: 2em;
   padding: 5px;
-  color: $maroon;
+  color: $marron;
   width: 100%;
   box-shadow: $box_shadow;
   font-family: $main_font;
@@ -91,19 +94,19 @@ input {
 
 .list_item_div {
   border-radius: 5px;
-  display: flex;
+  display: $show;
   justify-content: space-between;
-  border: none;
-  list-style-type: none;
+  border: $hide;
+  list-style-type: $hide;
   font-size: 2em;
   font-family: sans-serif;
   background: white;
   /* margin-top: 10px; */
   margin: 10px 20px;
   padding: 5px;
-  color: $maroon;
+  color: $marron;
   /* width: 88%; */
-  box-shadow: $box_shadow
+  box-shadow: $box_shadow;
   font-family: $main_font;
 }
 
@@ -133,7 +136,7 @@ label {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: $maroon;
+  background-color: $marron;
   -webkit-transition: 0.4s;
   transition: 0.4s;
   border-radius: 34px;
@@ -153,11 +156,11 @@ label {
 }
 
 input:checked + .slider {
-  background-color: $maroon;
+  background-color: $marron;
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px $maroon;
+  box-shadow: 0 0 1px $marron;
 }
 
 input:checked + .slider:before {
@@ -169,7 +172,7 @@ input:checked + .slider:before {
   max-width: 400px;
   margin: 0 auto;
   color: white;
-  user-select: none;
+  user-select: $hide;
   height: 84vh;
   position: relative;
 }
@@ -187,14 +190,19 @@ input:checked + .slider:before {
   background-color: white;
   border-radius: 50%;
   position: relative;
-  background-image: $gradient_0;
+  background-image: linear-gradient(
+    0deg,
+    rgba(173, 92, 92, 1) 9%,
+    rgba(168, 223, 214, 1) 78%,
+    rgba(168, 223, 214, 1) 78%
+  );
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 2px 4px 0 rgba(0, 0, 0, 0.19);
   /* font-family: $main_font; */
   transition: box-shadow 1s ease;
 }
 
 .timer:hover {
-  box-shadow: $box_shadow
+  box-shadow: $box_shadow;
 }
 
 /* .timer::before {
@@ -240,7 +248,7 @@ input:checked + .slider:before {
 #work_time,
 #break_time,
 #total_time {
-  display: flex;
+  display: $show;
   justify-content: center;
 }
 
@@ -253,7 +261,7 @@ input:checked + .slider:before {
   top: -10px;
   border-radius: 50%;
   /* background-color: rgb(89, 192, 218); */
-  background-color: $maroon;
+  background-color: $marron;
 }
 
 #work_hours,
@@ -265,7 +273,7 @@ input:checked + .slider:before {
 #stats_div {
   font-size: 23px;
   margin-bottom: 15px;
-  display: flex;
+  display: $show;
   justify-content: center;
   position: relative;
 }
@@ -280,7 +288,7 @@ input:checked + .slider:before {
   width: 293px;
   border-radius: 15px;
   padding: 15px;
-  color: $maroon;
+  color: $marron;
 }
 
 .stats {
@@ -295,10 +303,13 @@ input:checked + .slider:before {
 }
 
 .status {
-  color: $maroon;
+  color: $marron;
   font-size: 16px;
-  font-family: "font";
+  font-family: $main_font;
 }
+// #status {
+//   font-family: $main_font;
+// }
 
 .time {
   width: 68%;
@@ -341,15 +352,15 @@ input:checked + .slider:before {
   margin-bottom: 20px;
   border-radius: 15px;
   transition: box-shadow 1s ease;
-  /* background-image: linear-gradient(180deg, $marron 9%, $turquoise 78%, $turquoise 78%); */
+  /* background-image: linear-gradient(180deg, rgba(173, 92, 92, 1) 9%, rgba(168, 223, 214, 1) 78%, rgba(168, 223, 214, 1) 78%); */
 }
 
 .todo_list_div:hover {
-  box-shadow: $box_shadow
+  box-shadow: $box_shadow;
 }
 
 #todo_input {
-  box-shadow: $box_shadow
+  box-shadow: $box_shadow;
 }
 
 .add_button {
@@ -358,19 +369,19 @@ input:checked + .slider:before {
   margin: 0px 0px 0px 5px !important;
   border-radius: 5px !important;
   font-size: 1.5em;
-  background-color: $maroon;
+  background-color: $marron;
   font-family: $main_font;
-  border: none;
+  border: $hide;
   color: white;
   cursor: pointer;
 }
 
 .add_todo {
-  display: flex;
+  display: $show;
 }
 
 #total_time {
-  display: flex;
+  display: $show;
   flex-direction: row;
 }
 
@@ -379,9 +390,9 @@ input:checked + .slider:before {
   margin: 0px 0px 0px 5px !important;
   border-radius: 5px !important;
   font-size: 21px;
-  background-color: $turquoise;
+  background-color: rgba(168, 223, 214, 1);
   font-family: $main_font;
-  border: none;
+  border: $hide;
   color: white;
   cursor: pointer;
 }
@@ -391,9 +402,9 @@ input:checked + .slider:before {
   margin: 0px 0px 0px 5px !important;
   border-radius: 5px !important;
   font-size: 21px;
-  background-color: $turquoise;
+  background-color: rgba(168, 223, 214, 1);
   font-family: $main_font;
-  border: none;
+  border: $hide;
   color: white;
   cursor: pointer;
 }
@@ -406,10 +417,10 @@ input:checked + .slider:before {
   border-radius: 50%;
   font-size: 1.5em;
   background-color: white;
-  border: none;
-  color: $maroon;
+  border: $hide;
+  color: $marron;
   cursor: pointer;
-  box-shadow: $box_shadow
+  box-shadow: $box_shadow;
 }
 
 .action_buttons:focus,
@@ -438,7 +449,7 @@ input:focus,
 /* The Modal (background) */
 
 .time_modifier_modal {
-  display: none;
+  display: $hide;
   position: fixed;
   z-index: 1;
   /* left: 19%; */
@@ -451,7 +462,7 @@ input:focus,
 }
 
 .stats_modal {
-  display: none;
+  display: $hide;
   position: fixed;
   z-index: 2;
   /* left: 19%; */

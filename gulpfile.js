@@ -7,7 +7,7 @@ function style() {
   // Find ANH scss file in scss folder
   return (
     gulp
-      .src("./public/sass/main.scss")
+      .src("./public/sass/**/*.scss")
 
       // Pass that file through sass compiler
       .pipe(sass())
@@ -26,7 +26,7 @@ function watch() {
       baseDir: "./public"
     }
   });
-  gulp.watch("./public/sass/main.scss", style);
+  gulp.watch("./public/sass/style.scss", style);
   gulp.watch("./public/*.html").on("change", browserSync.reload);
   gulp.watch("./js/observers.js").on("change", browserSync.reload);
 }

@@ -1,6 +1,7 @@
 @font-face
   font-family: "main_font"
   src: url("../fonts/UniNeue-Light.otf")
+  }
 
 $main_font: "main_font"
 $maroon: "#ad5c5c"
@@ -14,6 +15,7 @@ $gradient_180: linear-gradient(
 )
 $gradient_0: linear-gradient(0deg, $marron 9%, $turquoise 78%, $turquoise 78%)
 $box_shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
+}
 
 @mixin flex_center
   display: flex
@@ -40,25 +42,20 @@ body
   -webkit-transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1)
   transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1)
 
-
   &::after
     -webkit-transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1)
     transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1)
-
 
   &:hover
     -webkit-transform: scale(1.1, 1.1)
     transform: scale(1.1, 1.1)
 
-
   &:hover::after
     opacity: 1
-
 
   &:active
     -webkit-transform: scale(1, 1)
     transform: scale(1, 1)
-
 
   &:active::after
     opacity: 1
@@ -109,7 +106,6 @@ label
   height: 17px
   margin-bottom: 10px
 
-
   & input
     opacity: 0
     width: 0
@@ -127,7 +123,6 @@ label
   transition: 0.4s
   border-radius: 34px
 
-
   &:before
     position: absolute
     content: " "
@@ -140,17 +135,14 @@ label
     transition: 0.4s
     border-radius: 50%
 
+    input: checked+ &
+      background-color: $maroon
 
-  input:checked+ &
-    background-color: $maroon
+    input: focus+ &
+      box-shadow: 0 0 1px $maroon
 
-
-  input:focus+ &
-    box-shadow: 0 0 1px $maroon
-
-
-  input:checked+:before &
-    transform: translateX(13px)
+    input: checked+:before &
+      transform: translateX(13px)
 
 .container
  /* padding: 20px; */
@@ -178,7 +170,6 @@ label
  /* font-family: $main_font; */
   transition: box-shadow 1s ease
 
-
   &:hover
     box-shadow: $box_shadow
 
@@ -194,7 +185,6 @@ label
  border-radius: 50%;
  } */
 
-
   &_container
  /* height: 53vh; */
 
@@ -204,7 +194,6 @@ label
   width: 20px
   left: 140px
   transition: 1s all linear
-
 
   &::before
     content: " "
@@ -279,7 +268,6 @@ label
   width: 68%
   text-align: center
 
-
   &::after
     content: " "
     display: block
@@ -313,7 +301,6 @@ label
   border-radius: 15px
   transition: box-shadow 1s ease
  /* background-image: linear-gradient(180deg, $marron 9%, $turquoise 78%, $turquoise 78%); */
-
 
   &:hover
     box-shadow: $box_shadow
@@ -429,7 +416,6 @@ input:focus,
 
  /* Tooltip text */
 
-
   & .tooltiptext
     visibility: hidden
     width: 150px
@@ -450,7 +436,6 @@ input:focus,
 
  /* Tooltip arrow */
 
-
   & .tooltiptext::after
     content: ""
     position: absolute
@@ -462,7 +447,6 @@ input:focus,
     border-color: #555 transparent transparent transparent
 
  /* Show the tooltip text when you mouse over the tooltip container */
-
 
   &:hover .tooltiptext
     visibility: visible
