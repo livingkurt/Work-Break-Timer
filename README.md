@@ -9,8 +9,7 @@
 </div> -->
 
 <p align="center">
-  <h2 style="font-size: 70px;">52/17 Work Break Timer</h2>
-  <img style="text-align: center;" src="./images/Main.png">
+  <img style="text-align: center;" src="./public/images/Work.png">
 </p>
 
 ### View in [Browser](https://livingkurt.github.io/Work-Break-Timer/)
@@ -73,3 +72,13 @@ For example, if you are spending all day on a screen. Then you shouldn't sit on 
 - SASS
 
 Or if you can run it in the [Browser](https://livingkurt.github.io/Work-Break-Timer/)
+
+Pictures
+
+<div align="center" style="display:flex; flex-wrap: wrap; width:1500px;">
+  <img style="text-align: center;" src="./public/images/Work.png">
+  <img style="text-align: center;" src="./public/images/Break.png">
+  <img style="text-align: center;" src="./public/images/Modify_Time.png">
+  <img style="text-align: center;" src="./public/images/Stats.png">
+  <img style="text-align: center;" src="./public/images/Todos.png">
+</div>
