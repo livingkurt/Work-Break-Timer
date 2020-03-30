@@ -211,7 +211,6 @@ const stopTimer = () => {
 
 const toggleStatus = (event) => {
   let checked = event.target.checked;
-  audio.play();
   if (checked) {
     render_styles_working()
 
