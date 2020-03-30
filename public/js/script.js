@@ -111,7 +111,7 @@ const setTime = () => {
 
 const renderTime = () => {
   minutes_display.textContent = " " + getFormattedMinutes()
-  seconds_display.textContent = ": " + getFormattedSeconds();
+  seconds_display.textContent = ":" + getFormattedSeconds();
   total_hours_display.textContent = get_formatted_hours(seconds_elapsed_total)
   total_minutes_display.textContent = get_formatted_minutes(seconds_elapsed_total)
   total_seconds_display.textContent = get_formatted_seconds(seconds_elapsed_total)

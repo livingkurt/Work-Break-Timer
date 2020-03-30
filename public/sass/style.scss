@@ -191,6 +191,7 @@ input:checked + .slider:before {
   font-size: 35px;
   text-align: center;
   margin-bottom: 5px;
+  margin-top: 23px;
 }
 
 .timer {
@@ -289,16 +290,15 @@ input:checked + .slider:before {
 }
 
 #stats_modal {
-  margin: 5px;
   position: absolute;
   display: block;
   z-index: 1;
-  top: 76px;
+  top: 112px;
   background: #ffffffe8;
-  width: 293px;
+  width: 245px;
   border-radius: 15px;
-  padding: 15px;
-  color: $marron;
+  padding: 12px;
+  color: #ad5c5c;
 }
 
 .stats {
@@ -336,8 +336,9 @@ input:checked + .slider:before {
   font-size: 5em;
   width: 77px;
   float: left;
-  margin-left: 10%;
+  margin-left: 7%;
   color: white;
+  margin-right: 3%;
 }
 
 #seconds {
@@ -463,7 +464,7 @@ input:focus,
   position: fixed;
   z-index: 1;
   /* left: 19%; */
-  top: 391px;
+  top: 400px;
   /* width: 87%; */
   height: 12%;
   overflow: auto;
