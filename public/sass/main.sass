@@ -1,0 +1,469 @@
+@font-face
+  font-family: "main_font"
+  src: url("../fonts/UniNeue-Light.otf")
+
+$main_font: "main_font"
+$maroon: "#ad5c5c"
+// $turquoise: "rgba(168, 223, 214, 1)";
+$turquoise: "rgba(173, 92, 92, 1)"
+$gradient_180: linear-gradient(
+  180deg,
+  $marron 9%,
+  $turquoise 78%,
+  $turquoise 78%
+)
+$gradient_0: linear-gradient(0deg, $marron 9%, $turquoise 78%, $turquoise 78%)
+$box_shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
+
+@mixin flex_center
+  display: flex
+  justify-content: center
+  margin: 0px auto
+  text-align: center
+
+html
+  height: 100vh
+ /* Fallback for browsers that do not support Custom Properties */
+  height: calc(var(--vh, 1vh) * 100)
+
+body
+  font-size: 14px
+  background-color: #fdfdfd
+ /* font-family: "Josefin Sans", sans-serif; */
+  font-family: $main_font
+  background-image: $gradient_180
+ /* transition: 1s; */
+  transition: background-image 5s linear
+ /* box-shadow: $box_shadow */
+
+.zoom
+  -webkit-transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1)
+  transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1)
+
+
+  &::after
+    -webkit-transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1)
+    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1)
+
+
+  &:hover
+    -webkit-transform: scale(1.1, 1.1)
+    transform: scale(1.1, 1.1)
+
+
+  &:hover::after
+    opacity: 1
+
+
+  &:active
+    -webkit-transform: scale(1, 1)
+    transform: scale(1, 1)
+
+
+  &:active::after
+    opacity: 1
+
+header
+  text-align: center
+  color: white
+ /* font-family: $main_font; */
+
+h1
+  font-size: 3.5em
+
+input
+  border-radius: 5px
+  border: none
+  font-size: 2em
+  padding: 5px
+  color: $maroon
+  width: 100%
+  box-shadow: $box_shadow
+  font-family: $main_font
+
+.list_item_div
+  border-radius: 5px
+  display: flex
+  justify-content: space-between
+  border: none
+  list-style-type: none
+  font-size: 2em
+  font-family: sans-serif
+  background: white
+ /* margin-top: 10px; */
+  margin: 10px 20px
+  padding: 5px
+  color: $maroon
+ /* width: 88%; */
+  box-shadow: $box_shadow
+  font-family: $main_font
+
+label
+  display: block
+  font-size: 16px
+
+.switch
+  position: relative
+  display: inline-block
+  width: 30px
+  height: 17px
+  margin-bottom: 10px
+
+
+  & input
+    opacity: 0
+    width: 0
+    height: 0
+
+.slider
+  position: absolute
+  cursor: pointer
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  background-color: $maroon
+  -webkit-transition: 0.4s
+  transition: 0.4s
+  border-radius: 34px
+
+
+  &:before
+    position: absolute
+    content: " "
+    height: 13px
+    width: 13px
+    left: 2px
+    bottom: 2px
+    background-color: white
+    -webkit-transition: 0.4s
+    transition: 0.4s
+    border-radius: 50%
+
+
+  input:checked+ &
+    background-color: $maroon
+
+
+  input:focus+ &
+    box-shadow: 0 0 1px $maroon
+
+
+  input:checked+:before &
+    transform: translateX(13px)
+
+.container
+ /* padding: 20px; */
+  max-width: 400px
+  margin: 0 auto
+  color: white
+  user-select: none
+  height: 84vh
+  position: relative
+
+.todo_list_label
+  font-size: 35px
+  text-align: center
+  margin-bottom: 5px
+
+.timer
+  height: 300px
+  width: 300px
+  margin: 0 auto 12px auto
+  background-color: white
+  border-radius: 50%
+  position: relative
+  background-image: $gradient_0
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 2px 4px 0 rgba(0, 0, 0, 0.19)
+ /* font-family: $main_font; */
+  transition: box-shadow 1s ease
+
+
+  &:hover
+    box-shadow: $box_shadow
+
+ /* .timer::before {
+ content: " ";
+ display: block;
+ position: absolute;
+ top: 5px;
+ left: 5px;
+ height: 290px;
+ width: 290px;
+ background-color: #fdfdfd;
+ border-radius: 50%;
+ } */
+
+
+  &_container
+ /* height: 53vh; */
+
+#hand
+  position: absolute
+  height: 300px
+  width: 20px
+  left: 140px
+  transition: 1s all linear
+
+
+  &::before
+    content: " "
+    display: block
+    position: absolute
+    border-left: 10px solid transparent
+    border-right: 10px solid transparent
+    border-top: 10px solid white
+    top: -19.175px
+    left: 2px
+    border-radius: 50%
+
+#header
+  margin-bottom: 0px
+
+#work_time,
+#break_time,
+#total_time
+  display: flex
+  justify-content: center
+
+#hand::after
+  content: " "
+  display: block
+  position: absolute
+  height: 25px
+  width: 25px
+  top: -10px
+  border-radius: 50%
+ /* background-color: rgb(89, 192, 218); */
+  background-color: $maroon
+
+#work_hours,
+#break_hours,
+.total_hours
+  margin-left: 5px
+
+#stats_div
+  font-size: 23px
+  margin-bottom: 15px
+  display: flex
+  justify-content: center
+  position: relative
+
+#stats_modal
+  margin: 5px
+  position: absolute
+  display: block
+  z-index: 1
+  top: 76px
+  background: #ffffffe8
+  width: 293px
+  border-radius: 15px
+  padding: 15px
+  color: $maroon
+
+.stats
+  margin: 5px
+
+.controls
+  position: absolute
+  top: 35px
+  width: 100%
+  text-align: center
+
+.status
+  color: $maroon
+  font-size: 16px
+  font-family: "font"
+
+.time
+  width: 68%
+  text-align: center
+
+
+  &::after
+    content: " "
+    display: block
+    clear: both
+
+#minutes
+  font-size: 5em
+  width: 77px
+  float: left
+  margin-left: 10%
+  color: white
+
+#seconds
+  font-size: 4em
+  float: left
+  margin-top: 5px
+  color: white
+
+.todo_input_div
+  width: 95%
+  margin: 0 auto
+
+.todo_list_div
+  overflow: scroll
+  overflow-x: auto
+ /* max-height: 35vh; */
+  height: 14vh
+  padding-bottom: 20px
+ /* box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 2px 0 rgba(0, 0, 0, 0.19); */
+  margin-bottom: 20px
+  border-radius: 15px
+  transition: box-shadow 1s ease
+ /* background-image: linear-gradient(180deg, $marron 9%, $turquoise 78%, $turquoise 78%); */
+
+
+  &:hover
+    box-shadow: $box_shadow
+
+#todo_input
+  box-shadow: $box_shadow
+
+.add_button
+  height: unset !important
+  width: 85px !important
+  margin: 0px 0px 0px 5px !important
+  border-radius: 5px !important
+  font-size: 1.5em
+  background-color: $maroon
+  font-family: $main_font
+  border: none
+  color: white
+  cursor: pointer
+
+.add_todo
+  display: flex
+
+#total_time
+  display: flex
+  flex-direction: row
+
+.reset_button
+  height: unset !important
+  margin: 0px 0px 0px 5px !important
+  border-radius: 5px !important
+  font-size: 21px
+  background-color: $turquoise
+  font-family: $main_font
+  border: none
+  color: white
+  cursor: pointer
+
+.view_stats_button
+  height: unset !important
+  margin: 0px 0px 0px 5px !important
+  border-radius: 5px !important
+  font-size: 21px
+  background-color: $turquoise
+  font-family: $main_font
+  border: none
+  color: white
+  cursor: pointer
+
+.action_buttons
+  height: 60px
+  width: 60px
+  margin: 5px
+  margin-top: 10px
+  border-radius: 50%
+  font-size: 1.5em
+  background-color: white
+  border: none
+  color: $maroon
+  cursor: pointer
+  box-shadow: $box_shadow
+
+.action_buttons:focus,
+input:focus,
+.add_button:focus,
+.reset_button:focus,
+.view_stats_button:focus
+  outline: 0
+
+.input-group
+ /* margin-top: 20px; */
+  float: left
+  padding: 10px
+  width: 132px
+
+.inputs::after
+  content: " "
+  display: block
+  clear: both
+  width: 75% !important
+ /* position: absolute; */
+
+ /* The Modal (background) */
+
+.time_modifier_modal
+  display: none
+  position: fixed
+  z-index: 1
+ /* left: 19%; */
+  top: 391px
+ /* width: 87%; */
+  height: 12%
+  overflow: auto
+ /* background-color: rgb(0, 0, 0); */
+  background-color: rgba(0, 0, 0, 0)
+
+.stats_modal
+  display: none
+  position: fixed
+  z-index: 2
+ /* left: 19%; */
+  top: 368px
+ /* width: 87%; */
+  height: 12%
+  overflow: auto
+ /* background-color: rgb(0, 0, 0); */
+  background-color: rgba(0, 0, 0, 0)
+
+.tooltip
+  position: relative
+  display: inline-block
+ /* border-bottom: 1px dotted black; */
+ /* If you want dots under the hoverable text */
+
+ /* Tooltip text */
+
+
+  & .tooltiptext
+    visibility: hidden
+    width: 150px
+    background-color: #555
+    color: #fff
+    text-align: center
+    padding: 5px 0
+    border-radius: 6px
+ /* Position the tooltip text */
+    position: absolute
+    z-index: 1
+    bottom: 125%
+    left: 50%
+    margin-left: -75px
+ /* Fade in tooltip */
+    opacity: 0
+    transition: opacity 0.3s
+
+ /* Tooltip arrow */
+
+
+  & .tooltiptext::after
+    content: ""
+    position: absolute
+    top: 100%
+    left: 50%
+    margin-left: -5px
+    border-width: 5px
+    border-style: solid
+    border-color: #555 transparent transparent transparent
+
+ /* Show the tooltip text when you mouse over the tooltip container */
+
+
+  &:hover .tooltiptext
+    visibility: visible
+    opacity: 1
