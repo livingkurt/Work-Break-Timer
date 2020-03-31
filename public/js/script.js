@@ -107,9 +107,11 @@ const setTime = () => {
   let minutes;
 
   if (status === "Working") {
-    minutes = work_minutes_input.value.trim() || 52
+    minutes = work_minutes_input.value.trim()
+    // work_minutes_display.textContent = minutes
   } else {
-    minutes = rest_minutes_input.value.trim() || 17
+    minutes = rest_minutes_input.value.trim()
+    // break_minutes_display.textContent = minutes
   }
 
   clearInterval(interval);
@@ -150,22 +152,6 @@ const renderTime = () => {
 const maroon = "background-color:rgba(173, 92, 92, 1);"
 const turquoise = "background-color:rgba(168, 223, 214, 1);"
 
-// const render_styles = (status) => {
-//   if (status = "Working") {
-//     color_1 = maroon
-//     color_2 = turquoise
-//     status = "Resting";
-//   }
-//   else {
-//     color_1 = turquoise
-//     color_2 = maroon
-//     status = "Working";
-//   }
-//   document.querySelector("body").setAttribute("style", "background-image: linear-gradient(180deg, rgba(173, 92, 92, 1) 9%, rgba(168, 223, 214, 1) 78%, rgba(168, 223, 214, 1) 78%)")
-//   add_todo_list_item.setAttribute("style", color_1)
-//   reset_button_e.setAttribute("style", color_2)
-//   view_stats_button_e.setAttribute("style", color_2)
-// }
 
 const render_styles_resting = () => {
   status = "Resting";
@@ -180,10 +166,7 @@ const render_styles_working = () => {
   add_todo_list_item.setAttribute("style", maroon)
   reset_button_e.setAttribute("style", turquoise)
   view_stats_button_e.setAttribute("style", turquoise)
-
 }
-
-
 
 const startTimer = () => {
   if (status === "Working") {
@@ -289,6 +272,23 @@ const show_stats = () => {
   }
 }
 
+const update_work_minutes_display = () => {
+  console.log("update_work_minutes_display")
+  minutes = work_minutes_input.value.trim()
+  console.log(minutes)
+  minutes_display.textContent = minutes
+  console.log(work_minutes_display)
+  minutes_display
+}
+
+const update_break_minutes_display = () => {
+  console.log("update_break_minutes_display")
+  minutes = rest_minutes_input.value.trim()
+  console.log(minutes)
+  seconds_display.textContent = minutes
+  console.log(break_minutes_display)
+}
+
 // Event Listeners
 play_button.addEventListener("click", startTimer);
 pause_button.addEventListener("click", pauseTimer);
@@ -299,12 +299,17 @@ reset_button_e.addEventListener("click", reset_stats);
 document.addEventListener('click', (e) => {
   const id = e.target.getAttribute('data')
   const list_item_to_remove = document.getElementById(id)
-  list_item_to_remove.remove()
+  if (!list_item_to_remove === null) {
+    list_item_to_remove.remove()
+  }
+
 
 })
 time_div.addEventListener("click", show_time_modifiers);
 view_stats_button_e.addEventListener("click", show_stats);
 
+work_minutes_input.addEventListener("click", update_work_minutes_display);
+rest_minutes_input.addEventListener("click", update_break_minutes_display);
 
 // View Port Settings for Moble I think
 let vh = window.innerHeight * 0.01;
