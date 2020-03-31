@@ -139,10 +139,12 @@ const renderTime = () => {
     if (status === "Working") {
       audio.play();
       render_styles_resting()
+      document.getElementById("status-toggle").checked = false;
     }
     else {
       audio.play();
       render_styles_working()
+      document.getElementById("status-toggle").checked = true;
     }
     status_span.textContent = status;
     stopTimer();
