@@ -82,7 +82,8 @@ const get_formatted_minutes = (time_elapsed) => {
   // time_elapsed = 3540
   let minutes_left = Math.floor(time_elapsed / 60) % 3600;
   if (minutes_left > 59) {
-    minutes_left = 0
+    minutes_left = (60 - minutes_left)
+    minutes_left = Math.abs(minutes_left)
   }
   return get_formatted_time(minutes_left);
 }
