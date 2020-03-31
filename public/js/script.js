@@ -272,21 +272,15 @@ const show_stats = () => {
   }
 }
 
-const update_work_minutes_display = () => {
-  console.log("update_work_minutes_display")
-  minutes = work_minutes_input.value.trim()
-  console.log(minutes)
+const update_minutes_display = () => {
+  if (status === "Working") {
+    minutes = work_minutes_input.value.trim()
+  } else {
+    minutes = rest_minutes_input.value.trim()
+  }
   minutes_display.textContent = minutes
-  console.log(work_minutes_display)
   minutes_display
-}
 
-const update_break_minutes_display = () => {
-  console.log("update_break_minutes_display")
-  minutes = rest_minutes_input.value.trim()
-  console.log(minutes)
-  seconds_display.textContent = minutes
-  console.log(break_minutes_display)
 }
 
 // Event Listeners
@@ -308,8 +302,8 @@ document.addEventListener('click', (e) => {
 time_div.addEventListener("click", show_time_modifiers);
 view_stats_button_e.addEventListener("click", show_stats);
 
-work_minutes_input.addEventListener("click", update_work_minutes_display);
-rest_minutes_input.addEventListener("click", update_break_minutes_display);
+work_minutes_input.addEventListener("click", update_minutes_display);
+rest_minutes_input.addEventListener("click", update_minutes_display);
 
 // View Port Settings for Moble I think
 let vh = window.innerHeight * 0.01;
