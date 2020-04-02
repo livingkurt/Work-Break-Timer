@@ -171,7 +171,7 @@ const render_styles_working = () => {
 }
 
 const startTimer = () => {
-  if (status === "Working") {
+  if (status === "Working" && minutes_display.textContent == 52) {
     session_num++
   }
   setTime();
