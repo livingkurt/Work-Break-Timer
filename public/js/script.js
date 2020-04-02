@@ -71,20 +71,13 @@ const getFormattedSeconds = () => {
 }
 
 const get_formatted_hours = (time_elapsed) => {
-  let hours_left = Math.floor(time_elapsed / 60 / 60) % 216000;
-  if (hours_left > 59) {
-    hours_left = 0
-  }
+  let hours_left = Math.floor(time_elapsed / 60 / 60) % 60;
   return get_formatted_time(hours_left);
 }
 
 const get_formatted_minutes = (time_elapsed) => {
-  // time_elapsed = 3540
-  let minutes_left = Math.floor(time_elapsed / 60) % 3600;
-  if (minutes_left > 59) {
-    minutes_left = (60 - minutes_left)
-    minutes_left = Math.abs(minutes_left)
-  }
+  let minutes_left = Math.floor(time_elapsed / 60) % 60;
+  minutes_left = Math.abs(minutes_left)
   return get_formatted_time(minutes_left);
 }
 
