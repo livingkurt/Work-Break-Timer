@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "browser-sync": "^2.26.7",
-    "date-and-time": "^0.13.1",
+    "date-and-time": "^0.14.2",
     "gulp-cli": "^2.2.0",
     "node-sass": "^4.13.1"
   }
